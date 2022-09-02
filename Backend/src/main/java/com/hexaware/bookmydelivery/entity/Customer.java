@@ -14,37 +14,40 @@ import javax.persistence.Table;
 public class Customer {
 	
 	@Id
-	@Column(name="custid")
+	@Column(name="custId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long custId;
 	
-	@Column(name="custname")
+	@Column(name="custName")
 	private String custName;
 	
-	@Column(name="custdob")
+	@Column(name="custDob")
 	private Date custDOB = new Date();
 	
-	@Column(name="custemail")
+	@Column(name="custEmail")
 	private String custEmail;
 	
-	@Column(name="custmobile")
+	@Column(name="custMobile")
 	private String custMobile;
 	
-	@Column(name="custadd")
+	@Column(name="custAdd")
 	private String custAdd;
 	
-	@Column(name="custpass")
+	@Column(name="custPass")
 	private String custPass;
 	
-	@Column(name="custwallet")
+	@Column(name="custWallet")
 	private float custWallet;
+	
+	@Column(name="custPin")
+	private int custPin;
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Customer(Long custId, String custName, Date custDOB, String custEmail, String custMobile, String custAdd,
-			String custPass, float custWallet) {
+			String custPass, float custWallet, int custPin) {
 		super();
 		this.custId = custId;
 		this.custName = custName;
@@ -54,6 +57,7 @@ public class Customer {
 		this.custAdd = custAdd;
 		this.custPass = custPass;
 		this.custWallet = custWallet;
+		this.custPin = custPin;
 	}
 
 	public Long getCustId() {
@@ -120,15 +124,20 @@ public class Customer {
 		this.custWallet = custWallet;
 	}
 
+	public int getCustPin() {
+		return custPin;
+	}
+
+	public void setCustPin(int custPin) {
+		this.custPin = custPin;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [custId=" + custId + ", custName=" + custName + ", custDOB=" + custDOB + ", custEmail="
 				+ custEmail + ", custMobile=" + custMobile + ", custAdd=" + custAdd + ", custPass=" + custPass
-				+ ", custWallet=" + custWallet + "]";
+				+ ", custWallet=" + custWallet + ", custPin=" + custPin + "]";
 	}
-	
-	
-	
 	
 
 }

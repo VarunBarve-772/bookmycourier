@@ -20,19 +20,26 @@ import javax.persistence.Table;
 public class Manager {
 	
 	@Id
-	@Column(name="managerid")
+	@Column(name="managerId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long managerId;
-	@Column(name="managername")
+	@Column(name="managerName")
 	private String managerName;
-	@Column(name="manageremail")
+	@Column(name="managerEmail")
 	private String managerEmail;
-	@Column(name="managermobile")
+	@Column(name="managerMobile")
 	private String managerMobile;
-	@Column(name="managerpass")
+	@Column(name="managerPass")
 	private String managerPass;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="center_details_fkid")
+	private Center center;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="manager_deliveryboy_fkid",referencedColumnName = "managerId")
+	Set<DeliveryBoy> deliveryboy = new HashSet<>();
+
 	
 	public Manager() {
 		// TODO Auto-generated constructor stub
@@ -88,16 +95,6 @@ public class Manager {
 		this.managerPass = managerPass;
 	}
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="center_details_fkid")
-	private Center center;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="manager_deliveryboy_fkid",referencedColumnName = "managerId")
-	Set<DeliveryBoy> deliveryboy = new HashSet<>();
-
-
-
 
 	public Manager(String managerName, String managerEmail, String managerMobile, String managerPass, Center center) {
 		super();
@@ -116,6 +113,14 @@ public class Manager {
 
 	public void setCenter(Center center) {
 		this.center = center;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Manager [managerId=" + managerId + ", managerName=" + managerName + ", managerEmail=" + managerEmail
+				+ ", managerMobile=" + managerMobile + ", managerPass=" + managerPass + ", center=" + center
+				+ ", deliveryboy=" + deliveryboy + "]";
 	}
 
 

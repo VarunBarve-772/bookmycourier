@@ -14,20 +14,20 @@ public class DeliveryBoy {
 
 	
 	@Id
-	@Column(name="deliveryboyid")
+	@Column(name="deliveryBoyId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long deliveryBoyId;
 	
-	@Column(name="deliveryboyname")
+	@Column(name="deliveryBoyName")
 	private String deliveryBoyName;
 	
-	@Column(name="deliveryboyemail")
+	@Column(name="deliveryBoyEmail")
 	private String deliveryBoyEmail;
 	
-	@Column(name="deliveryboymobile")
+	@Column(name="deliveryBoyMobile")
 	private String deliveryBoyMobile;
 	
-	@Column(name="deliveryboypass")
+	@Column(name="deliveryBoyPass")
 	private String deliveryBoyPass;
 	
 	

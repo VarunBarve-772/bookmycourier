@@ -18,16 +18,16 @@ import javax.persistence.Table;
 public class Admin {
 
 	@Id
-	@Column(name="adminid")
+	@Column(name="adminId")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long adminId;
-	@Column(name="adminname")
+	@Column(name="adminName")
 	private String adminName;
-	@Column(name="adminemail")
+	@Column(name="admineMail")
 	private String adminEmail;
-	@Column(name="adminmobile")
+	@Column(name="adminMobile")
 	private String adminMobile;
-	@Column(name="adminpass")
+	@Column(name="adminPass")
 	private String adminPass;
 	
 	
@@ -106,9 +106,12 @@ public class Admin {
 		this.adminPass = adminPass;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminEmail=" + adminEmail
+				+ ", adminMobile=" + adminMobile + ", adminPass=" + adminPass + ", manager=" + manager + "]";
+	}
 
-	
-	
+		
 	
 }
