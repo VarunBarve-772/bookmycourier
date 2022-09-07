@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hexaware.bookmydelivery.entity.Customer;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 
 public interface ICustomerService {
 
@@ -13,7 +14,7 @@ public interface ICustomerService {
 	
 	public boolean saveCustomer(Customer customer);
 	
-	public Customer updateCustomer(Customer customer);
+	public Customer updateCustomer(Customer customer)throws ResourseNotFoundException;
 	
 	public boolean deleteCustomer(long customerId);
 

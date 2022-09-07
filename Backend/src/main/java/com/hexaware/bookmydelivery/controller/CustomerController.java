@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.bookmydelivery.entity.Customer;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.service.CustomerService;
 
 @RestController
@@ -57,7 +58,7 @@ public class CustomerController {
 	}
 	
 	@PutMapping("/")
-	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer)throws ResourseNotFoundException {
 		Customer updatedCustomer = customerService.updateCustomer(customer);
 		
 		if(updatedCustomer == null) {

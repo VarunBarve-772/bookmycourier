@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.Manager;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.ManagerRepository;
 
 @Service
@@ -37,7 +38,7 @@ public class ManagerService implements IManagerService {
 	}
 
 	@Override
-	public Manager updateManager(Manager manager) {
+	public Manager updateManager(Manager manager)throws ResourseNotFoundException {
 
 		return managerRepository.save(manager);
 	}

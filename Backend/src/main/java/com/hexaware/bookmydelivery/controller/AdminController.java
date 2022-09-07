@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.bookmydelivery.entity.Admin;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.service.AdminService;
 
 @RestController
@@ -57,7 +58,7 @@ public class AdminController {
 	}
 	
 	@PutMapping("/")
-	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin) {
+	public ResponseEntity<Admin> updateAdmin(@RequestBody Admin admin)throws ResourseNotFoundException {
 		Admin updatedAdmin = adminService.updateAdmin(admin);
 		
 		if(updatedAdmin == null) {

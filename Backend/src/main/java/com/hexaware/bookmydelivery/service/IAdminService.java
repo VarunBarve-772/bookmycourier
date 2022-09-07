@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hexaware.bookmydelivery.entity.Admin;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 
 public interface IAdminService {
 	
@@ -13,7 +14,7 @@ public interface IAdminService {
 	
 	public boolean saveAdmin(Admin admin);
 	
-	public Admin updateAdmin(Admin admin);
+	public Admin updateAdmin(Admin admin)throws ResourseNotFoundException;
 	
 	public boolean deleteAdmin(long adminId);
 	

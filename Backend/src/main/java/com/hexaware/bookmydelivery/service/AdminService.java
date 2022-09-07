@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.Admin;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.AdminRepository;
 
 @Service
@@ -38,7 +39,7 @@ public class AdminService implements IAdminService {
 	}
 
 	@Override
-	public Admin updateAdmin(Admin admin) {
+	public Admin updateAdmin(Admin admin)throws ResourseNotFoundException  {
 		return adminRepository.save(admin);
 	}
 

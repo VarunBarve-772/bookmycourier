@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.Customer;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.CustomerRepository;
 
 @Service
@@ -37,7 +38,7 @@ public class CustomerService implements ICustomerService{
 	}
 
 	@Override
-	public Customer updateCustomer(Customer customer) {
+	public Customer updateCustomer(Customer customer)throws ResourseNotFoundException  {
 		// TODO Auto-generated method stub
 		return customerRepository.save(customer);
 	}

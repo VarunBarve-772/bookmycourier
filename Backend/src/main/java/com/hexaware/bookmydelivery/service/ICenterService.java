@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hexaware.bookmydelivery.entity.Center;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 
 public interface ICenterService {
 
@@ -13,7 +14,7 @@ public interface ICenterService {
 	
 	public boolean saveCenter(Center center);
 	
-	public Center updateCenter(Center center);
+	public Center updateCenter(Center center)throws ResourseNotFoundException;
 	
 	public boolean deleteCenter(long centerId);
 

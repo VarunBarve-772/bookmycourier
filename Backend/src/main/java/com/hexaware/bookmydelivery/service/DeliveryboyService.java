@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.DeliveryBoy;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.DeliveryBoyRepository;
 
 @Service
@@ -37,7 +38,7 @@ public class DeliveryboyService implements IDeliveryBoyService {
 	}
 
 	@Override
-	public DeliveryBoy updateDeliveryBoy(DeliveryBoy deliveryBoy) {
+	public DeliveryBoy updateDeliveryBoy(DeliveryBoy deliveryBoy)throws ResourseNotFoundException  {
 		// TODO Auto-generated method stub
 		return deliveryBoyRepository.save(deliveryBoy);
 	}

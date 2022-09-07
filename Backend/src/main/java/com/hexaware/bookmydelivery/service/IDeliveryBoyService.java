@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.hexaware.bookmydelivery.entity.DeliveryBoy;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 
 public interface IDeliveryBoyService {
 	
@@ -13,7 +14,7 @@ public interface IDeliveryBoyService {
 	
 	public boolean saveDeliveryBoy(DeliveryBoy deliveryBoy);
 	
-	public DeliveryBoy updateDeliveryBoy(DeliveryBoy deliveryBoy);
+	public DeliveryBoy updateDeliveryBoy(DeliveryBoy deliveryBoy)throws ResourseNotFoundException;
 	
 	public boolean deleteDeliveryBoy(long deliveryBoyId);
 

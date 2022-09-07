@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.Center;
+import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.CenterRepository;
 
 @Service 
@@ -39,7 +40,7 @@ public class CenterService implements ICenterService {
 	}
 
 	@Override
-	public Center updateCenter(Center center) {
+	public Center updateCenter(Center center)throws ResourseNotFoundException  {
 
 		return centerRepository.save(center);
 	}
