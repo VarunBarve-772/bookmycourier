@@ -29,6 +29,8 @@ public class Manager {
 	private String managerEmail;
 	@Column(name="managerMobile")
 	private String managerMobile;
+	@Column(name="managerusername", nullable = false, unique=true)
+	private String managerUsername;
 	@Column(name="managerPass")
 	private String managerPass;
 	
@@ -43,6 +45,40 @@ public class Manager {
 	
 	public Manager() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+	public Manager(Long managerId, String managerName, String managerEmail, String managerMobile,
+			String managerUsername, String managerPass, Center center, Set<DeliveryBoy> deliveryboy) {
+		super();
+		this.managerId = managerId;
+		this.managerName = managerName;
+		this.managerEmail = managerEmail;
+		this.managerMobile = managerMobile;
+		this.managerUsername = managerUsername;
+		this.managerPass = managerPass;
+		this.center = center;
+		this.deliveryboy = deliveryboy;
+	}
+
+
+	public String getManagerUsername() {
+		return managerUsername;
+	}
+
+
+	public void setManagerUsername(String managerUsername) {
+		this.managerUsername = managerUsername;
+	}
+
+
+	public Set<DeliveryBoy> getDeliveryboy() {
+		return deliveryboy;
+	}
+
+
+	public void setDeliveryboy(Set<DeliveryBoy> deliveryboy) {
+		this.deliveryboy = deliveryboy;
 	}
 
 
@@ -96,16 +132,6 @@ public class Manager {
 	}
 
 
-	public Manager(String managerName, String managerEmail, String managerMobile, String managerPass, Center center) {
-		super();
-		this.managerName = managerName;
-		this.managerEmail = managerEmail;
-		this.managerMobile = managerMobile;
-		this.managerPass = managerPass;
-		this.center = center;
-	}
-
-
 	public Center getCenter() {
 		return center;
 	}
@@ -119,14 +145,9 @@ public class Manager {
 	@Override
 	public String toString() {
 		return "Manager [managerId=" + managerId + ", managerName=" + managerName + ", managerEmail=" + managerEmail
-				+ ", managerMobile=" + managerMobile + ", managerPass=" + managerPass + ", center=" + center
-				+ ", deliveryboy=" + deliveryboy + "]";
+				+ ", managerMobile=" + managerMobile + ", managerUsername=" + managerUsername + ", managerPass="
+				+ managerPass + ", center=" + center + ", deliveryboy=" + deliveryboy + "]";
 	}
 
-
-	
-	
-	
-	
 	
 }

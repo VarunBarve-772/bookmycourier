@@ -27,6 +27,8 @@ public class Admin {
 	private String adminEmail;
 	@Column(name="adminMobile")
 	private String adminMobile;
+	@Column(name="adminusername", nullable = false, unique=true)
+	private String adminUsername;
 	@Column(name="adminPass")
 	private String adminPass;
 	
@@ -48,22 +50,26 @@ public class Admin {
 		this.manager = manager;
 	}
 
-	public Admin(String adminName, String adminEmail, String adminMobile, String adminPass, Set<Manager> manager) {
-		super();
-		this.adminName = adminName;
-		this.adminEmail = adminEmail;
-		this.adminMobile = adminMobile;
-		this.adminPass = adminPass;
-		this.manager = manager;
-	}
+	
 
-	public Admin(Long adminId, String adminName, String adminEmail, String adminMobile, String adminPass) {
+	public Admin(Long adminId, String adminName, String adminEmail, String adminMobile, String adminUsername,
+			String adminPass, Set<Manager> manager) {
 		super();
 		this.adminId = adminId;
 		this.adminName = adminName;
 		this.adminEmail = adminEmail;
 		this.adminMobile = adminMobile;
+		this.adminUsername = adminUsername;
 		this.adminPass = adminPass;
+		this.manager = manager;
+	}
+
+	public String getAdminUsername() {
+		return adminUsername;
+	}
+
+	public void setAdminUsername(String adminUsername) {
+		this.adminUsername = adminUsername;
 	}
 
 	public Long getAdminId() {
@@ -109,9 +115,8 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminEmail=" + adminEmail
-				+ ", adminMobile=" + adminMobile + ", adminPass=" + adminPass + ", manager=" + manager + "]";
+				+ ", adminMobile=" + adminMobile + ", adminUsername=" + adminUsername + ", adminPass=" + adminPass
+				+ ", manager=" + manager + "]";
 	}
-
-		
 	
 }

@@ -33,6 +33,9 @@ public class Customer {
 	@Column(name="custAdd")
 	private String custAdd;
 	
+	@Column(name="custusername", nullable = false, unique=true)
+	private String custUsername;
+	
 	@Column(name="custPass")
 	private String custPass;
 	
@@ -47,7 +50,7 @@ public class Customer {
 	}
 
 	public Customer(Long custId, String custName, Date custDOB, String custEmail, String custMobile, String custAdd,
-			String custPass, float custWallet, int custPin) {
+			String custUsername, String custPass, float custWallet, int custPin) {
 		super();
 		this.custId = custId;
 		this.custName = custName;
@@ -55,9 +58,18 @@ public class Customer {
 		this.custEmail = custEmail;
 		this.custMobile = custMobile;
 		this.custAdd = custAdd;
+		this.custUsername = custUsername;
 		this.custPass = custPass;
 		this.custWallet = custWallet;
 		this.custPin = custPin;
+	}
+
+	public String getCustUsername() {
+		return custUsername;
+	}
+
+	public void setCustUsername(String custUsername) {
+		this.custUsername = custUsername;
 	}
 
 	public Long getCustId() {
@@ -135,8 +147,8 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [custId=" + custId + ", custName=" + custName + ", custDOB=" + custDOB + ", custEmail="
-				+ custEmail + ", custMobile=" + custMobile + ", custAdd=" + custAdd + ", custPass=" + custPass
-				+ ", custWallet=" + custWallet + ", custPin=" + custPin + "]";
+				+ custEmail + ", custMobile=" + custMobile + ", custAdd=" + custAdd + ", custUsername=" + custUsername
+				+ ", custPass=" + custPass + ", custWallet=" + custWallet + ", custPin=" + custPin + "]";
 	}
 	
 
