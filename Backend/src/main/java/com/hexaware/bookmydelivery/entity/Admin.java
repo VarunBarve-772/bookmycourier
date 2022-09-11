@@ -1,16 +1,10 @@
 package com.hexaware.bookmydelivery.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,28 +26,13 @@ public class Admin {
 	@Column(name="adminPass")
 	private String adminPass;
 	
-	
-	//foreing key declaratiion for one to many relationship between admin and manager
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="adminmanager_fkid",referencedColumnName = "adminId")
-	Set<Manager> manager = new HashSet<>();
-	
+		
 	public Admin() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Set<Manager> getManager() {
-		return manager;
-	}
-
-	public void setManager(Set<Manager> manager) {
-		this.manager = manager;
-	}
-
-	
-
 	public Admin(Long adminId, String adminName, String adminEmail, String adminMobile, String adminUsername,
-			String adminPass, Set<Manager> manager) {
+			String adminPass) {
 		super();
 		this.adminId = adminId;
 		this.adminName = adminName;
@@ -61,7 +40,6 @@ public class Admin {
 		this.adminMobile = adminMobile;
 		this.adminUsername = adminUsername;
 		this.adminPass = adminPass;
-		this.manager = manager;
 	}
 
 	public String getAdminUsername() {
@@ -116,7 +94,7 @@ public class Admin {
 	public String toString() {
 		return "Admin [adminId=" + adminId + ", adminName=" + adminName + ", adminEmail=" + adminEmail
 				+ ", adminMobile=" + adminMobile + ", adminUsername=" + adminUsername + ", adminPass=" + adminPass
-				+ ", manager=" + manager + "]";
+				+ "]";
 	}
 	
 }

@@ -29,8 +29,6 @@ public class BookedCourier {
 	private Date courierDeliveryDate;
 	@Column(name="courierStatus")
 	private String courierStatus;
-	@Column(name="custId")
-	private Long customerId;
 	
 	public Date getCourierBookDate() {
 		return courierBookDate;
@@ -68,19 +66,13 @@ public class BookedCourier {
 	public void setCourierStatus(String courierStatus) {
 		this.courierStatus = courierStatus;
 	}
-	public Long getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
-	}
 
 	@Override
 	public String toString() {
 		return "BookedCourier [courierId=" + courierId + ", courierBookDate=" + courierBookDate + ", courierPickupAdd="
 				+ courierPickupAdd + ", courierDeliveryAdd=" + courierDeliveryAdd + ", courierPickupDate="
 				+ courierPickupDate + ", courierDeliveryDate=" + courierDeliveryDate + ", courierStatus="
-				+ courierStatus + ", customerId=" + customerId + "]";
+				+ courierStatus + "]";
 	}
 	
 	
@@ -100,8 +92,8 @@ public class BookedCourier {
 		this.courierPickupDate = courierPickupDate;
 		this.courierDeliveryDate = courierDeliveryDate;
 		this.courierStatus = courierStatus;
-		this.customerId = customerId;
 	}
+
 	public BookedCourier() {
 		// TODO Auto-generated constructor stub
 	}

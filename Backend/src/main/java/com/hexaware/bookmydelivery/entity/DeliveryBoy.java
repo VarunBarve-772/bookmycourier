@@ -1,10 +1,13 @@
 package com.hexaware.bookmydelivery.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -33,13 +36,16 @@ public class DeliveryBoy {
 	@Column(name="deliveryBoyPass")
 	private String deliveryBoyPass;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="bookedcourier_details_fkid")
+	private BookedCourier bookedCourier;
 	
 	public DeliveryBoy() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public DeliveryBoy(Long deliveryBoyId, String deliveryBoyName, String deliveryBoyEmail, String deliveryBoyMobile,
-			String deliveryBoyUsername, String deliveryBoyPass) {
+			String deliveryBoyUsername, String deliveryBoyPass, BookedCourier bookedCourier) {
 		super();
 		this.deliveryBoyId = deliveryBoyId;
 		this.deliveryBoyName = deliveryBoyName;
@@ -47,8 +53,17 @@ public class DeliveryBoy {
 		this.deliveryBoyMobile = deliveryBoyMobile;
 		this.deliveryBoyUsername = deliveryBoyUsername;
 		this.deliveryBoyPass = deliveryBoyPass;
+		this.bookedCourier = bookedCourier;
 	}
 
+
+	public BookedCourier getBookedCourier() {
+		return bookedCourier;
+	}
+
+	public void setBookedCourier(BookedCourier bookedCourier) {
+		this.bookedCourier = bookedCourier;
+	}
 
 	public String getDeliveryBoyUsername() {
 		return deliveryBoyUsername;
@@ -102,7 +117,8 @@ public class DeliveryBoy {
 	public String toString() {
 		return "DeliveryBoy [deliveryBoyId=" + deliveryBoyId + ", deliveryBoyName=" + deliveryBoyName
 				+ ", deliveryBoyEmail=" + deliveryBoyEmail + ", deliveryBoyMobile=" + deliveryBoyMobile
-				+ ", deliveryBoyUsername=" + deliveryBoyUsername + ", deliveryBoyPass=" + deliveryBoyPass + "]";
+				+ ", deliveryBoyUsername=" + deliveryBoyUsername + ", deliveryBoyPass=" + deliveryBoyPass
+				+ ", bookedCourier=" + bookedCourier + "]";
 	}
 
 	

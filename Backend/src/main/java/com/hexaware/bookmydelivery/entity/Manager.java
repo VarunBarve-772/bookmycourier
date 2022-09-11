@@ -37,19 +37,18 @@ public class Manager {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="center_details_fkid")
 	private Center center;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="manager_deliveryboy_fkid",referencedColumnName = "managerId")
-	Set<DeliveryBoy> deliveryboy = new HashSet<>();
+	@JoinColumn(name="manager_bookedcourier_fkid",referencedColumnName = "bookedCourierId")
+	Set<BookedCourier> bookedCourier = new HashSet<>();
 
 	
 	public Manager() {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public Manager(Long managerId, String managerName, String managerEmail, String managerMobile,
-			String managerUsername, String managerPass, Center center, Set<DeliveryBoy> deliveryboy) {
+			String managerUsername, String managerPass, Center center, Set<BookedCourier> bookedCourier) {
 		super();
 		this.managerId = managerId;
 		this.managerName = managerName;
@@ -58,7 +57,16 @@ public class Manager {
 		this.managerUsername = managerUsername;
 		this.managerPass = managerPass;
 		this.center = center;
-		this.deliveryboy = deliveryboy;
+		this.bookedCourier = bookedCourier;
+	}
+
+	public Set<BookedCourier> getBookedCourier() {
+		return bookedCourier;
+	}
+
+
+	public void setBookedCourier(Set<BookedCourier> bookedCourier) {
+		this.bookedCourier = bookedCourier;
 	}
 
 
@@ -69,16 +77,6 @@ public class Manager {
 
 	public void setManagerUsername(String managerUsername) {
 		this.managerUsername = managerUsername;
-	}
-
-
-	public Set<DeliveryBoy> getDeliveryboy() {
-		return deliveryboy;
-	}
-
-
-	public void setDeliveryboy(Set<DeliveryBoy> deliveryboy) {
-		this.deliveryboy = deliveryboy;
 	}
 
 
@@ -141,13 +139,11 @@ public class Manager {
 		this.center = center;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Manager [managerId=" + managerId + ", managerName=" + managerName + ", managerEmail=" + managerEmail
 				+ ", managerMobile=" + managerMobile + ", managerUsername=" + managerUsername + ", managerPass="
-				+ managerPass + ", center=" + center + ", deliveryboy=" + deliveryboy + "]";
+				+ managerPass + ", center=" + center + ", bookedCourier=" + bookedCourier + "]";
 	}
-
 	
 }

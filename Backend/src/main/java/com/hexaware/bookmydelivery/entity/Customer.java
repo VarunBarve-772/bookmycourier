@@ -1,12 +1,17 @@
 package com.hexaware.bookmydelivery.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -45,12 +50,17 @@ public class Customer {
 	@Column(name="custPin")
 	private int custPin;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="customer_bookedcourier_fkid",referencedColumnName = "bookedCourierId")
+	Set<BookedCourier> bookedCourier = new HashSet<>();
+
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Customer(Long custId, String custName, Date custDOB, String custEmail, String custMobile, String custAdd,
-			String custUsername, String custPass, float custWallet, int custPin) {
+			String custUsername, String custPass, float custWallet, int custPin, Set<BookedCourier> bookedCourier) {
 		super();
 		this.custId = custId;
 		this.custName = custName;
@@ -62,6 +72,16 @@ public class Customer {
 		this.custPass = custPass;
 		this.custWallet = custWallet;
 		this.custPin = custPin;
+		this.bookedCourier = bookedCourier;
+	}
+
+
+	public Set<BookedCourier> getBookedCourier() {
+		return bookedCourier;
+	}
+
+	public void setBookedCourier(Set<BookedCourier> bookedCourier) {
+		this.bookedCourier = bookedCourier;
 	}
 
 	public String getCustUsername() {
@@ -144,12 +164,14 @@ public class Customer {
 		this.custPin = custPin;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [custId=" + custId + ", custName=" + custName + ", custDOB=" + custDOB + ", custEmail="
 				+ custEmail + ", custMobile=" + custMobile + ", custAdd=" + custAdd + ", custUsername=" + custUsername
-				+ ", custPass=" + custPass + ", custWallet=" + custWallet + ", custPin=" + custPin + "]";
+				+ ", custPass=" + custPass + ", custWallet=" + custWallet + ", custPin=" + custPin + ", bookedCourier="
+				+ bookedCourier + "]";
 	}
-	
+
 
 }

@@ -1,10 +1,16 @@
 package com.hexaware.bookmydelivery.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,26 +28,38 @@ public class Center {
 	@Column(name="centerPhone")
 	private String centerPhone;
 	
-	
 	@Column(name="centerPin")
 	private int centerPin;
 	
 	@Column(name="centerPrice")
 	private float centerPrice;
 
-	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="center_deliveryboy_fkid",referencedColumnName = "centerId")
+	Set<DeliveryBoy> deliveryboy = new HashSet<>();
+
 	public Center() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Center(Long centerId, String centerName, String centerPhone, int centerPin, float centerPrice) {
+	public Center(Long centerId, String centerName, String centerPhone, int centerPin, float centerPrice,
+			Set<DeliveryBoy> deliveryboy) {
 		super();
 		this.centerId = centerId;
 		this.centerName = centerName;
 		this.centerPhone = centerPhone;
 		this.centerPin = centerPin;
 		this.centerPrice = centerPrice;
+		this.deliveryboy = deliveryboy;
+	}
+
+	public Set<DeliveryBoy> getDeliveryboy() {
+		return deliveryboy;
+	}
+
+	public void setDeliveryboy(Set<DeliveryBoy> deliveryboy) {
+		this.deliveryboy = deliveryboy;
 	}
 
 	public Long getCenterId() {
@@ -87,8 +105,7 @@ public class Center {
 	@Override
 	public String toString() {
 		return "Center [centerId=" + centerId + ", centerName=" + centerName + ", centerPhone=" + centerPhone
-				+ ", centerPin=" + centerPin + ", centerPrice=" + centerPrice + "]";
+				+ ", centerPin=" + centerPin + ", centerPrice=" + centerPrice + ", deliveryboy=" + deliveryboy + "]";
 	}
-	
 	
 }
