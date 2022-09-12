@@ -9,7 +9,7 @@ class OuterNavbar extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="/"><strong>Book My Courier</strong></a>
+                    <a className="navbar-brand" href="/"><strong>Book My Courier</strong></a>
                     <div className="container-fluid">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>

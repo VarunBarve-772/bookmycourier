@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 import OuterNavbar from "../../navbar/outerNavbar";
 import CustomerRegister from './customerRegister';
-import AdminRegister from './adminRegister';
 import ManagerRegister from './managerRegister';
 import DeliveryBoyRegister from './deliveryBoyRegister';
+import HeadManager from "./headManagerRegister";
 
 class Login extends Component {
     constructor(props) {
@@ -27,8 +27,8 @@ class Login extends Component {
 
                 <div>
                     <ul className="nav justify-content-end">
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<AdminRegister/>)}>
-                            Register Admin
+                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<HeadManager/>)}>
+                            Register Head Manager
                         </li>
 
                         <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<ManagerRegister/>)}>

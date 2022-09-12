@@ -51,7 +51,7 @@ public class Customer {
 	private int custPin;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="customer_bookedcourier_fkid",referencedColumnName = "bookedCourierId")
+	@JoinColumn(name="customer_bookedcourier_fkid",referencedColumnName = "custId")
 	Set<BookedCourier> bookedCourier = new HashSet<>();
 
 	public Customer() {

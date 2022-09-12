@@ -39,7 +39,7 @@ public class Manager {
 	private Center center;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="manager_bookedcourier_fkid",referencedColumnName = "bookedCourierId")
+	@JoinColumn(name="manager_bookedcourier_fkid",referencedColumnName = "managerId")
 	Set<BookedCourier> bookedCourier = new HashSet<>();
 
 	
