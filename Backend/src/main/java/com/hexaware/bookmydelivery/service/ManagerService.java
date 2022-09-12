@@ -53,4 +53,10 @@ public class ManagerService implements IManagerService {
 		}
 	}
 
+	@Override
+	public Manager loginManager(Manager manager) {
+		// TODO Auto-generated method stub
+		return managerRepository.findByManagerUsernameAndManagerPass(manager.getManagerUsername(), manager.getManagerPass());
+	}
+
 }

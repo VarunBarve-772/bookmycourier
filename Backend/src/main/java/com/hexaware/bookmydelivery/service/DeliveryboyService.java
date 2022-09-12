@@ -53,4 +53,10 @@ public class DeliveryboyService implements IDeliveryBoyService {
 		}
 	}
 
+	@Override
+	public DeliveryBoy loginDeliveryBoy(DeliveryBoy deliveryBoy) {
+		// TODO Auto-generated method stub
+		return deliveryBoyRepository.findByDeliveryBoyUsernameAndDeliveryBoyPass(deliveryBoy.getDeliveryBoyUsername(), deliveryBoy.getDeliveryBoyPass());
+	}
+
 }

@@ -53,4 +53,10 @@ public class CustomerService implements ICustomerService{
 		}
 	}
 
+	@Override
+	public Customer loginCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return customerRepository.findByCustUsernameAndCustPass(customer.getCustUsername(), customer.getCustPass());
+	}
+
 }

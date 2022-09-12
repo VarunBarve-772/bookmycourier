@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.service.CustomerService;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/customer")
 public class CustomerController {
 
@@ -74,6 +76,17 @@ public class CustomerController {
 			return new ResponseEntity<>("Customer Deleted", HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Customer Not Deleted", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<Customer> loginCustomer(@RequestBody Customer customer) {
+		Customer customerUser = customerService.loginCustomer(customer);
+		
+		if(customerUser == null) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(customerUser);
+		} else {
+			return ResponseEntity.ok().body(customerUser);
 		}
 	}
 }

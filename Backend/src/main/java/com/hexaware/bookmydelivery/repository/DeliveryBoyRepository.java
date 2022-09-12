@@ -8,4 +8,5 @@ import com.hexaware.bookmydelivery.entity.DeliveryBoy;
 @Repository
 public interface DeliveryBoyRepository extends JpaRepository<DeliveryBoy, Long> {
 
+	public DeliveryBoy findByDeliveryBoyUsernameAndDeliveryBoyPass(String username, String Pass);
 }

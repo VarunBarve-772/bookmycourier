@@ -17,5 +17,7 @@ public interface ICustomerService {
 	public Customer updateCustomer(Customer customer)throws ResourseNotFoundException;
 	
 	public boolean deleteCustomer(long customerId);
+	
+	public Customer loginCustomer(Customer customer);
 
 }

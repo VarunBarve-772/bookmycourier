@@ -29,7 +29,7 @@ public class Manager {
 	private String managerEmail;
 	@Column(name="managerMobile")
 	private String managerMobile;
-	@Column(name="managerusername", nullable = false, unique=true)
+	@Column(name="managerUsername", nullable = false, unique=true)
 	private String managerUsername;
 	@Column(name="managerPass")
 	private String managerPass;

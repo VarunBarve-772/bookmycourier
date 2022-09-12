@@ -80,13 +80,13 @@ public class HeadManagerController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> loginHeadManager(@RequestBody HeadManager headManager) {
+	public ResponseEntity<HeadManager> loginHeadManager(@RequestBody HeadManager headManager) {
 		HeadManager headManagerUser = headManagerService.loginHeadManager(headManager);
 		
 		if(headManagerUser == null) {
-			return new ResponseEntity<>("Invalid Head Manager User", HttpStatus.INTERNAL_SERVER_ERROR);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(headManagerUser);
 		} else {
-			return new ResponseEntity<>("Valid Head Manager User", HttpStatus.OK);
+			return ResponseEntity.ok().body(headManagerUser);
 		}
 	}
 }
