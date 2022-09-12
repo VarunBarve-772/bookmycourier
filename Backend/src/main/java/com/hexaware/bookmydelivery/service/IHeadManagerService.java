@@ -18,5 +18,6 @@ public interface IHeadManagerService {
 	
 	public boolean deleteHeadManager(long headManagerId);
 	
+	public HeadManager loginHeadManager(HeadManager headManager);
 	
 }

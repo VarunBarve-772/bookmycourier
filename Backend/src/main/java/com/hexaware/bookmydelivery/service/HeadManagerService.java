@@ -53,4 +53,10 @@ public class HeadManagerService implements IHeadManagerService {
 		}
 	}
 
+	@Override
+	public HeadManager loginHeadManager(HeadManager headManager) {
+		
+		return headManagerRepository.findByHeadManagerUsernameAndHeadManagerPass(headManager.getHeadManagerUsername(), headManager.getHeadManagerPass());
+	}
+
 }

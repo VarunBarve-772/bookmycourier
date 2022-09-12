@@ -1,18 +1,15 @@
 import axios from "axios";
 
-class HeadManagerService{
+class ManagerService{
 
     // getAllEmployees(){
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveHeadManager(headManager){
-        return axios.post("http://localhost:8080/api/headmanager/", headManager);
+    saveManager(manager){
+        return axios.post("http://localhost:8080/api/manager/", manager);
     }
 
-    loginHeadManager(headManager) {
-        return axios.post("http://localhost:8080/api/headmanager/login", headManager);
-    }
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }
@@ -26,4 +23,4 @@ class HeadManagerService{
     // }
 }
 
-export default new HeadManagerService();
+export default new ManagerService();

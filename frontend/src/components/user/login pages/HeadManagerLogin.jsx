@@ -1,0 +1,72 @@
+import React, { Component } from "react";
+
+import HeadManagerService from "../../../services/HeadManagerService";
+
+class HeadManagerLogin extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            headManagerUsername:'',
+            headManagerPass:''
+        }
+        this.changeHeadManagerUsernameHandler=this.changeHeadManagerUsernameHandler.bind(this);
+        this.changeHeadManagerPassHandler=this.changeHeadManagerPassHandler.bind(this);
+        this.loginHeadManager=this.loginHeadManager.bind(this)
+    }
+
+    changeHeadManagerUsernameHandler = (event) => {
+        this.setState({headManagerUsername: event.target.value});
+    }
+
+    changeHeadManagerPassHandler = (event) => {
+        this.setState({headManagerPass: event.target.value});
+    }
+
+    loginHeadManager = (e) => {
+        e.preventDefault();
+        let headManager = {
+            headManagerUsername:this.state.headManagerUsername,
+            headManagerPass:this.state.headManagerPass
+           
+        }
+        console.log(headManager);
+
+        HeadManagerService.loginHeadManager(headManager)
+        .then((response) => {
+            console.log(response.status);
+        });
+        
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Head Manager Login</h1>
+                <form className="col-4">
+                    <div className="form-outline mb-4">
+                        <input type="email" id="form2Example1" className="form-control" value={this.state.headManagerUsername} onChange={this.changeHeadManagerUsernameHandler} />
+                        <label className="form-label" htmlFor="form2Example1">Username</label>
+                    </div>
+
+                    <div className="form-outline mb-4">
+                        <input type="password" id="form2Example2" className="form-control" value={this.state.headManagerPass} onChange={this.changeHeadManagerPassHandler}/>
+                        <label className="form-label" htmlFor="form2Example2">Password</label>
+                    </div>
+
+                    {/* <div className="row mb-4">
+                        <div className="col">
+                            <a href="#!">Forgot password?</a>
+                        </div>
+                    </div> */}
+
+                    <button type="button" className="btn btn-primary btn-block mb-4" onClick={this.loginHeadManager}>Sign in</button>
+
+                    <div className="text-center">
+                        <p>Not a member? <a href="/registration">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+}
+export default HeadManagerLogin;

@@ -78,4 +78,15 @@ public class HeadManagerController {
 			return new ResponseEntity<>("Head Manager Not Deleted", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<String> loginHeadManager(@RequestBody HeadManager headManager) {
+		HeadManager headManagerUser = headManagerService.loginHeadManager(headManager);
+		
+		if(headManagerUser == null) {
+			return new ResponseEntity<>("Invalid Head Manager User", HttpStatus.INTERNAL_SERVER_ERROR);
+		} else {
+			return new ResponseEntity<>("Valid Head Manager User", HttpStatus.OK);
+		}
+	}
 }

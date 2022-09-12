@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import OuterNavbar from "../../navbar/outerNavbar";
-import AdminLogin from "./adminLogin";
-import CustomerLogin from "./customerLogin";
-import DeliveryBoyLogin from './deliveryBoyLogin';
-import ManagerLogin from './managerLogin';
+import OuterNavbar from "../../navbar/OuterNavbar";
+import HeadManagerLogin from "./HeadManagerLogin";
+import CustomerLogin from "./CustomerLogin";
+import DeliveryBoyLogin from './DeliveryBoyLogin';
+import ManagerLogin from './ManagerLogin';
 
 class Login extends Component {
     constructor(props) {
@@ -27,8 +27,8 @@ class Login extends Component {
 
                 <div>
                     <ul className="nav justify-content-end">
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<AdminLogin/>)}>
-                            Admin Login
+                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<HeadManagerLogin/>)}>
+                            Head Manager Login
                         </li>
 
                         <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<ManagerLogin/>)}>

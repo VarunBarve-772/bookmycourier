@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import HeadManagerService from "../../../services/headManagerService";
+import HeadManagerService from "../../../services/HeadManagerService";
 
 
 class HeadManager extends Component {

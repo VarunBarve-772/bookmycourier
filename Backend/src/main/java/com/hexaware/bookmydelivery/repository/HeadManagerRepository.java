@@ -8,4 +8,5 @@ import com.hexaware.bookmydelivery.entity.HeadManager;
 @Repository
 public interface HeadManagerRepository extends JpaRepository<HeadManager, Long> {
 
+	public HeadManager findByHeadManagerUsernameAndHeadManagerPass(String username, String pass);
 }
