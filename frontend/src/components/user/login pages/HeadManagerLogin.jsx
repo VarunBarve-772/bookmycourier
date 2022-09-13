@@ -33,7 +33,12 @@ class HeadManagerLogin extends Component {
 
         HeadManagerService.loginHeadManager(headManager)
         .then((response) => {
-            console.log(response.status);
+            // console.log(response.status);
+            if(response.status === 200) {
+                sessionStorage.setItem("userId", response.data.headManagerId);
+                sessionStorage.setItem("userType", "HeadManager");
+                this.props.history.push('/headmanager/home');
+            }
         });
         
     }

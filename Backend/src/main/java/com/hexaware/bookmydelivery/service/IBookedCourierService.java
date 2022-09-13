@@ -12,7 +12,7 @@ public interface IBookedCourierService {
 	
 	public Optional<BookedCourier> getBookedCourierByID(long bookedCourierId);
 	
-	public boolean saveBookedCourier(BookedCourier bookedCourier);
+	public boolean saveBookedCourier(BookedCourier bookedCourier, Long custId);
 	
 	public BookedCourier updateBookedCourier(BookedCourier bookedCourier)throws ResourseNotFoundException;
 	

@@ -10,6 +10,9 @@ class DeliveryBoyService{
         return axios.post("http://localhost:8080/api/deliveryboy/", deliveryBoy);
     }
 
+    logindeliveryBoy(deliveryBoy) {
+        return axios.post("http://localhost:8080/api/deliveryboy/login", deliveryBoy);
+    }
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

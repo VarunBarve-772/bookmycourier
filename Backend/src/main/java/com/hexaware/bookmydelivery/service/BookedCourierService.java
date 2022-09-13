@@ -2,11 +2,13 @@ package com.hexaware.bookmydelivery.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.BookedCourier;
+import com.hexaware.bookmydelivery.entity.Customer;
 import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.BookedCourierRepository;
 
@@ -15,6 +17,9 @@ public class BookedCourierService implements IBookedCourierService {
 
 	@Autowired
 	private BookedCourierRepository bookedCourierRepository;
+	
+	@Autowired
+	private ICustomerService customerService;
 	
 	@Override
 	public List<BookedCourier> getAllBookedCouriers() {
@@ -29,9 +34,18 @@ public class BookedCourierService implements IBookedCourierService {
 	}
 
 	@Override
-	public boolean saveBookedCourier(BookedCourier bookedCourier) {
+	public boolean saveBookedCourier(BookedCourier bookedCourier, Long custId) {
 		try {
-			bookedCourierRepository.save(bookedCourier);
+			Optional<Customer> customerOptional = customerService.getCustomerByID(custId);
+			Customer customer = customerOptional.get();
+			
+			Set<BookedCourier> bookedCourirerCustomer = customer.getBookedCourier();
+			bookedCourirerCustomer.add(bookedCourier);
+			customer.setBookedCourier(bookedCourirerCustomer);
+			
+			customerService.saveCustomer(customer);
+			
+//			bookedCourierRepository.save(bookedCourier);
 			return true;
 		} catch (Exception e) {
 			return false;

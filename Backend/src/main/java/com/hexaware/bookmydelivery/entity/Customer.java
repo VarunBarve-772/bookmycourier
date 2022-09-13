@@ -27,7 +27,7 @@ public class Customer {
 	private String custName;
 	
 	@Column(name="custDob")
-	private Date custDOB = new Date();
+	private Date custDOB;
 	
 	@Column(name="custEmail")
 	private String custEmail;

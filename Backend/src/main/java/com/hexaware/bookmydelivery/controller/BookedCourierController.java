@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.bookmydelivery.entity.BookedCourier;
@@ -51,9 +52,9 @@ public class BookedCourierController {
 	}
 	
 	@PostMapping("/")
-	public ResponseEntity<String> saveBookedCourier(@RequestBody BookedCourier bookedCourier) {
-		System.out.println(bookedCourier);
-		if(bookedCourierService.saveBookedCourier(bookedCourier)) {
+	public ResponseEntity<String> saveBookedCourier(@RequestParam Long custId, @RequestBody BookedCourier bookedCourier) {
+		System.out.println(custId);
+		if(bookedCourierService.saveBookedCourier(bookedCourier, custId)) {
 			return new ResponseEntity<>("Booked Courier Added" , HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>("Booked Courier Not Added", HttpStatus.INTERNAL_SERVER_ERROR);

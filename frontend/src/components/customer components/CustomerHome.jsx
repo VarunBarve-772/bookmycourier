@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 
 import BookedCourierService from "../../services/BookedCourierService";
+import CustomerNavbar from "../navbar/CustomerNavbar";
 
 class CustomerHome extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            courierBookDate: new Date().toLocaleDateString(),
+            courierBookDate: new Date(),
             courierPickupAdd: '',
             courierDeliveryAdd: '',
             courierPickupDate: '',
@@ -29,14 +30,15 @@ class CustomerHome extends Component {
     }
 
     changePickupDateHandler = (event) => {
-        this.setState({courierPickupDate: event.target.value});
+        let pickupDate =  new Date(event.target.value);
+        this.setState({courierPickupDate: pickupDate});
         this.changeDeliveryDate(event.target.value);
     }
 
     changeDeliveryDate = (pickupDate) => {
         let deliDate = new Date(pickupDate);
         deliDate.setDate(deliDate.getDate() + (Math.random() * 6) + 6);
-        this.setState({courierDeliveryDate: deliDate.toLocaleDateString()});
+        this.setState({courierDeliveryDate: deliDate});
         // console.log(deliveryDate.toLocaleDateString());
 
     }
@@ -53,15 +55,19 @@ class CustomerHome extends Component {
         }
 
         console.log(courier);
-        BookedCourierService.saveCourier(courier)
+        BookedCourierService.saveCourier(courier, sessionStorage.getItem("userId"))
         .then((response) => {
-            console.log(response.status);
+            // console.log(response.status);
+            if(response.status === 200) {
+                alert("Courier Booked!!!!");
+            }
         })
     }
 
     render() {
         return (
             <div>
+                <CustomerNavbar />
                 <h1>Book Your Courier</h1>
                 <form className="col-4">
                     <div className="form-outline mb-4">
@@ -82,7 +88,7 @@ class CustomerHome extends Component {
                         
                     </div>
 
-                    <button type="button" className="btn btn-primary btn-block mb-4" onClick={this.saveCourier}>Register Manager</button>
+                    <button type="button" className="btn btn-primary btn-block mb-4" onClick={this.saveCourier}>Book Courier</button>
 
                 </form>
             </div>

@@ -1,5 +1,8 @@
 package com.hexaware.bookmydelivery.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -36,16 +39,27 @@ public class DeliveryBoy {
 	@Column(name="deliveryBoyPass")
 	private String deliveryBoyPass;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="bookedcourier_details_fkid")
-	private BookedCourier bookedCourier;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="deliveryboy_bookedcourier_fkid",referencedColumnName = "deliveryBoyId")
+	Set<BookedCourier> bookedCourier = new HashSet<>();
 	
 	public DeliveryBoy() {
 		// TODO Auto-generated constructor stub
 	}
 
+
+	public Set<BookedCourier> getBookedCourier() {
+		return bookedCourier;
+	}
+
+
+	public void setBookedCourier(Set<BookedCourier> bookedCourier) {
+		this.bookedCourier = bookedCourier;
+	}
+
+
 	public DeliveryBoy(Long deliveryBoyId, String deliveryBoyName, String deliveryBoyEmail, String deliveryBoyMobile,
-			String deliveryBoyUsername, String deliveryBoyPass, BookedCourier bookedCourier) {
+			String deliveryBoyUsername, String deliveryBoyPass, Set<BookedCourier> bookedCourier) {
 		super();
 		this.deliveryBoyId = deliveryBoyId;
 		this.deliveryBoyName = deliveryBoyName;
@@ -56,14 +70,6 @@ public class DeliveryBoy {
 		this.bookedCourier = bookedCourier;
 	}
 
-
-	public BookedCourier getBookedCourier() {
-		return bookedCourier;
-	}
-
-	public void setBookedCourier(BookedCourier bookedCourier) {
-		this.bookedCourier = bookedCourier;
-	}
 
 	public String getDeliveryBoyUsername() {
 		return deliveryBoyUsername;
@@ -112,6 +118,7 @@ public class DeliveryBoy {
 	public void setDeliveryBoyPass(String deliveryBoyPass) {
 		this.deliveryBoyPass = deliveryBoyPass;
 	}
+
 
 	@Override
 	public String toString() {

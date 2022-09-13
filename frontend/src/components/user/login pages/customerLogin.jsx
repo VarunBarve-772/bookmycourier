@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import  { withRouter } from 'react-router-dom';
+
 import CustomerService from "../../../services/CustomerService";
 
 class CustomerLogin extends Component {
@@ -29,11 +31,15 @@ class CustomerLogin extends Component {
             custPass:this.state.custPass
            
         }
-        console.log(customer);
 
         CustomerService.loginCustomer(customer)
         .then((response) => {
-            console.log(response.status);
+            if(response.status === 200) {
+                // console.log(response.data);
+                sessionStorage.setItem("userId", response.data.custId);
+                sessionStorage.setItem("userType", "Customer");
+                this.props.history.push('/customer/home');
+            }
         });
         
     }
@@ -71,4 +77,4 @@ class CustomerLogin extends Component {
         )
     }
 }
-export default CustomerLogin;
+export default withRouter(CustomerLogin);

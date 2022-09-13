@@ -6,8 +6,8 @@ class BookedCourierService{
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveCourier(courier){
-        return axios.post("http://localhost:8080/api/bookedcourier/",courier);
+    saveCourier(courier, custId){
+        return axios.post(`http://localhost:8080/api/bookedcourier/?custId=${custId}`,courier);
     }
 
     // getEmployeeById(employeeId){

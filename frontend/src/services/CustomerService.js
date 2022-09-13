@@ -10,6 +10,14 @@ class CustomerService{
         return axios.post("http://localhost:8080/api/customer/",customer);
     }
 
+    loginCustomer(customer) {
+        return axios.post("http://localhost:8080/api/customer/login", customer);
+    }
+
+    getCustomerById(custId) {
+        return axios.get(`http://localhost:8080/api/customer/${custId}`);
+    }
+
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

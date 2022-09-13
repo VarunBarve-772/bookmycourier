@@ -27,13 +27,17 @@ class AdminLogin extends Component {
         let deliveryBoy = {
             deliveryBoyUsername:this.state.deliveryBoyUsername,
             deliveryBoyPass:this.state.deliveryBoyPass
-           
         }
-        console.log(deliveryBoy);
+        // console.log(deliveryBoy);
 
         DeliveryBoyService.loginDeliveryBoy(deliveryBoy)
         .then((response) => {
-            console.log(response.status);
+            // console.log(response.status);
+            if(response.status === 200) {
+                sessionStorage.setItem("userId", response.data.deliveryBoyId);
+                sessionStorage.setItem("userType", "DeliveryBoy");
+                this.props.history.push('/deliveryboy/home');
+            }
         });
         
     }

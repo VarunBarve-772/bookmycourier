@@ -8,12 +8,12 @@ class CustomerRegister extends Component {
             custName:'',
             custDOB:'',
             custEmail:'',
-            custMobile:0,
+            custMobile: '',
             custAdd:'',
             custUsername:'',
             custPass:'',
-            custWallet:0,
-            custPin:0
+            custWallet: '',
+            custPin: ''
 
 
         }
@@ -70,6 +70,10 @@ class CustomerRegister extends Component {
         e.preventDefault();
         let customer = {
             custName:this.state.custName,
+            custAdd: this.state.custAdd,
+            custDOB: this.state.custDOB,
+            custWallet: this.state.custWallet,
+            custPin: this.state.custPin,
             custEmail:this.state.custEmail,
             custMobile:this.state.custMobile,
             custUsername:this.state.custUsername,
@@ -109,7 +113,7 @@ class CustomerRegister extends Component {
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Mobile Number</label>
-                        <input type="number" id="custMobile" className="form-control" value={this.state.custMobile} onChange={this.changeCustomerMobileHandler}/>
+                        <input type="text" id="custMobile" className="form-control" value={this.state.custMobile} onChange={this.changeCustomerMobileHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
@@ -132,13 +136,13 @@ class CustomerRegister extends Component {
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Wallet</label>
-                        <input type="number" id="custWallet" className="form-control" value={this.state.custWallet} onChange={this.changeCustomerWalletHandler}/>
+                        <input type="text" id="custWallet" className="form-control" value={this.state.custWallet} onChange={this.changeCustomerWalletHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Pin Code</label>
-                        <input type="number" id="custPin" className="form-control" value={this.state.custPin} onChange={this.changeCustomerPinHandler}/>
+                        <input type="text" id="custPin" className="form-control" value={this.state.custPin} onChange={this.changeCustomerPinHandler}/>
                         
                     </div>
 

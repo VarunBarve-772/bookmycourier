@@ -29,11 +29,16 @@ class AdminLogin extends Component {
             managerPass:this.state.managerPass
            
         }
-        console.log(manager);
+        // console.log(manager);
 
         ManagerService.loginManager(manager)
         .then((response) => {
-            console.log(response.status);
+            // console.log(response.status);
+            if(response.status === 200) {
+                sessionStorage.setItem("userId", response.data.managerId);
+                sessionStorage.setItem("userType", "Manager");
+                this.props.history.push('/manager/home');
+            }
         });
         
     }
