@@ -79,7 +79,7 @@ class DeliveryBoyRegister extends Component {
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Delivery Boy Mobile Number</label>
-                        <input type="number" id="deliveryBoyMobile" className="form-control" value={this.state.deliveryBoyMobile} onChange={this.changeDeliveryBoyMobileHandler}/>
+                        <input type="text" id="deliveryBoyMobile" className="form-control" value={this.state.deliveryBoyMobile} onChange={this.changeDeliveryBoyMobileHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">

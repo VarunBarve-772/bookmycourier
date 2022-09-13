@@ -6,8 +6,12 @@ class CustomerService{
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveCustomer(customer){
-        return axios.post("http://localhost:8080/api/customer/",customer);
+    // saveCustomer(customer){
+    //     return axios.post("http://localhost:8080/api/customer/",customer);
+    // }
+
+    saveCustomer(){
+        return axios.get(`http://localhost:8080/api/deliveryboy/addcourier/?deliveryBoyId=${1}&bookedCourierId=${5}`)
     }
 
     loginCustomer(customer) {

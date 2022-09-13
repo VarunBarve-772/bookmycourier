@@ -32,16 +32,19 @@ class CustomerLogin extends Component {
            
         }
 
-        CustomerService.loginCustomer(customer)
-        .then((response) => {
-            if(response.status === 200) {
-                // console.log(response.data);
-                sessionStorage.setItem("userId", response.data.custId);
-                sessionStorage.setItem("userType", "Customer");
-                this.props.history.push('/customer/home');
-            }
-        });
-        
+        // CustomerService.loginCustomer(customer)
+        // .then((response) => {
+        //     if(response.status === 200) {
+        //         // console.log(response.data);
+        //         sessionStorage.setItem("userId", response.data.custId);
+        //         sessionStorage.setItem("userType", "Customer");
+        //         this.props.history.push('/customer/home');
+        //     }
+        // });
+    CustomerService.saveCustomer()
+    .then((response) => {
+        console.log(response.status);
+    })        
     }
 
     render() {

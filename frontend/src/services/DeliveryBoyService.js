@@ -6,12 +6,16 @@ class DeliveryBoyService{
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveManager(deliveryBoy){
+    saveDeliveryBoy(deliveryBoy){
         return axios.post("http://localhost:8080/api/deliveryboy/", deliveryBoy);
     }
 
-    logindeliveryBoy(deliveryBoy) {
+    loginDeliveryBoy(deliveryBoy) {
         return axios.post("http://localhost:8080/api/deliveryboy/login", deliveryBoy);
+    }
+
+    getDeliveryBoyById(deliveryBoyId) {
+        return axios.get(`http://localhost:8080/api/deliveryboy/${deliveryBoyId}`);
     }
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);

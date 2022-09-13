@@ -19,4 +19,6 @@ public interface IDeliveryBoyService {
 	public boolean deleteDeliveryBoy(long deliveryBoyId);
 
 	public DeliveryBoy loginDeliveryBoy(DeliveryBoy deliveryBoy);
+	
+	public boolean addCourier(Long deliveryBoyId, Long courierId);
 }

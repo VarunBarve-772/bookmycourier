@@ -16,7 +16,7 @@ class CustomerCourierHistory extends Component {
         .then((response) => {
             // console.log(response.data.bookedCourier);
             this.setState({customerCouriers: response.data.bookedCourier});
-        })
+        });
     }
 
     render() {

@@ -1,5 +1,6 @@
 package com.hexaware.bookmydelivery.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -40,6 +41,9 @@ public class BookedCourierService implements IBookedCourierService {
 			Customer customer = customerOptional.get();
 			
 			Set<BookedCourier> bookedCourirerCustomer = customer.getBookedCourier();
+			if(bookedCourirerCustomer.isEmpty()) {
+				bookedCourirerCustomer = new HashSet<>();
+			}
 			bookedCourirerCustomer.add(bookedCourier);
 			customer.setBookedCourier(bookedCourirerCustomer);
 			
