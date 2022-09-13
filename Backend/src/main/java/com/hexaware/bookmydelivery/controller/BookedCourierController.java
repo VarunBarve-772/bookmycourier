@@ -52,6 +52,7 @@ public class BookedCourierController {
 	
 	@PostMapping("/")
 	public ResponseEntity<String> saveBookedCourier(@RequestBody BookedCourier bookedCourier) {
+		System.out.println(bookedCourier);
 		if(bookedCourierService.saveBookedCourier(bookedCourier)) {
 			return new ResponseEntity<>("Booked Courier Added" , HttpStatus.OK);
 		} else {

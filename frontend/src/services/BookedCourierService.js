@@ -1,13 +1,13 @@
 import axios from "axios";
 
-class CustomerService{
+class BookedCourierService{
 
     // getAllEmployees(){
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveCustomer(customer){
-        return axios.post("http://localhost:8080/api/customer/",customer);
+    saveCourier(courier){
+        return axios.post("http://localhost:8080/api/bookedcourier/",courier);
     }
 
     // getEmployeeById(employeeId){
@@ -23,4 +23,4 @@ class CustomerService{
     // }
 }
 
-export default new CustomerService();
+export default new BookedCourierService();

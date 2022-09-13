@@ -44,13 +44,13 @@ class HeadManagerLogin extends Component {
                 <h1>Head Manager Login</h1>
                 <form className="col-4">
                     <div className="form-outline mb-4">
-                        <input type="email" id="form2Example1" className="form-control" value={this.state.headManagerUsername} onChange={this.changeHeadManagerUsernameHandler} />
                         <label className="form-label" htmlFor="form2Example1">Username</label>
+                        <input type="email" id="form2Example1" className="form-control" value={this.state.headManagerUsername} onChange={this.changeHeadManagerUsernameHandler} />
                     </div>
 
                     <div className="form-outline mb-4">
-                        <input type="password" id="form2Example2" className="form-control" value={this.state.headManagerPass} onChange={this.changeHeadManagerPassHandler}/>
                         <label className="form-label" htmlFor="form2Example2">Password</label>
+                        <input type="password" id="form2Example2" className="form-control" value={this.state.headManagerPass} onChange={this.changeHeadManagerPassHandler}/>
                     </div>
 
                     {/* <div className="row mb-4">
