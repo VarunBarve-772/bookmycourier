@@ -9,7 +9,7 @@ class HeadManager extends Component {
         this.state={
             headManagerName:'',
             headManagerEmail:'',
-            headManagerMobile:0,
+            headManagerMobile:'',
             headManagerUsername:'',
             headManagerPass:''
         }

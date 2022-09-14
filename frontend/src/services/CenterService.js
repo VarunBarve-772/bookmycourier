@@ -1,21 +1,21 @@
 import axios from "axios";
 
-class CustomerService{
+class CenterService{
 
     // getAllEmployees(){
     //     return axios.get("http://localhost:8088/employee/listemployees")
     // }
 
-    saveCustomer(customer){
-        return axios.post("http://localhost:8080/api/customer/",customer);
+    saveCenter(center){
+        return axios.post("http://localhost:8080/api/center/",center);
     }
 
-    loginCustomer(customer) {
-        return axios.post("http://localhost:8080/api/customer/login", customer);
+    getCenterById(centerId) {
+        return axios.get(`http://localhost:8080/api/center/${centerId}`);
     }
 
-    getCustomerById(custId) {
-        return axios.get(`http://localhost:8080/api/customer/${custId}`);
+    getAllCenters() {
+        return axios.get(`http://localhost:8080/api/center/centers`)
     }
 
     // getEmployeeById(employeeId){
@@ -31,4 +31,4 @@ class CustomerService{
     // }
 }
 
-export default new CustomerService();
+export default new CenterService();

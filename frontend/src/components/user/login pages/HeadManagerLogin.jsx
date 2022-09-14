@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 import HeadManagerService from "../../../services/HeadManagerService";
 
@@ -40,7 +41,6 @@ class HeadManagerLogin extends Component {
                 this.props.history.push('/headmanager/home');
             }
         });
-        
     }
 
     render() {
@@ -74,4 +74,4 @@ class HeadManagerLogin extends Component {
         )
     }
 }
-export default HeadManagerLogin;
+export default withRouter(HeadManagerLogin);

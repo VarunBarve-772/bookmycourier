@@ -9,6 +9,7 @@ import CustomerCourierHistory from './components/customer components/CustomerCou
 import ManagerHome from "./components/manager components/ManagerHome";
 import HeadManagerHome from './components/head manager components/HeadManagerHome';
 import DeliveryBoyHome from './components/delivery boy components/DeliveryBoyHome';
+import CenterList from './components/CenterList';
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
 
         {/* Head Manager Routing Paths */}
           <Route path="/headmanager/home" component={HeadManagerHome}></Route>
+
+          <Route path="/headmanager/center" component={CenterList}></Route>
 
         {/* Delivery Boy Routing Paths */}
           <Route path="/deliveryboy/home" component={DeliveryBoyHome}></Route>
