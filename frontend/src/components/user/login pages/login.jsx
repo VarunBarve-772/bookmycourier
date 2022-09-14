@@ -22,24 +22,26 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3	',
+              }}>
                 <OuterNavbar />
 
                 <div>
                     <ul className="nav justify-content-end">
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<HeadManagerLogin/>)}>
+                        <li className="nav-link btn btn-outline-primary" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<HeadManagerLogin/>)}>
                             Head Manager Login
                         </li>
 
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<ManagerLogin/>)}>
+                        <li className="nav-link btn btn-outline-primary" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<ManagerLogin/>)}>
                             Manager Login
                         </li>
 
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<DeliveryBoyLogin/>)}>
+                        <li className="nav-link btn btn-outline-primary" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<DeliveryBoyLogin/>)}>
                             Delivery Boy Login
                         </li>
 
-                        <li className="nav-link" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<CustomerLogin/>)}>
+                        <li className="nav-link btn btn-outline-primary" style={{cursor:"pointer"}} onClick={() => this.changeFormState(<CustomerLogin/>)}>
                             Customer Login
                         </li>
                     </ul>

@@ -48,18 +48,21 @@ class DeliveryBoyLogin extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3	',
+              }}>
                 <h1>Delivery Boy Login</h1>
+                <img src={require('../../../images/best-courier-service.jpeg')} style={{height:"200px"}}/>
                 <form className="col-4">
                     <div className="form-outline mb-4">
                     <label className="form-label" htmlFor="form2Example1">Username</label>
-                        <input type="email" id="form2Example1" className="form-control" value={this.state.deliveryBoyUsername} onChange={this.changeDeliveryBoyUsernameHandler}/>
+                        <input type="email" id="form2Example1" className="form-control" required value={this.state.deliveryBoyUsername} onChange={this.changeDeliveryBoyUsernameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                     <label className="form-label" htmlFor="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" className="form-control"  value={this.state.deliveryBoyPass} onChange={this.changeDeliveryBoyPassHandler}/>
+                        <input type="password" id="form2Example2" className="form-control" required value={this.state.deliveryBoyPass} onChange={this.changeDeliveryBoyPassHandler}/>
                         
                     </div>
 

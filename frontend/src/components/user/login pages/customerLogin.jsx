@@ -45,18 +45,21 @@ class CustomerLogin extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <h1>Customer Login</h1>
+                <img src={require('../../../images/cs.jpg')} style={{height:"200px"}}/>
                 <form className="col-4">
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Username</label>
-                        <input type="email" id="form2Example1" className="form-control" value={this.state.custUsername} onChange={this.changeCustomerUsernameHandler} />
+                        <input type="email" id="form2Example1" className="form-control" required value={this.state.custUsername} onChange={this.changeCustomerUsernameHandler} />
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" className="form-control" value={this.state.custPass} onChange={this.changeCustomerPassHandler}/>
+                        <input type="password" id="form2Example2" className="form-control" required value={this.state.custPass} onChange={this.changeCustomerPassHandler}/>
                         
                     </div>
 

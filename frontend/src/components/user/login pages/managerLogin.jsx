@@ -47,16 +47,17 @@ class AdminLogin extends Component {
         return (
             <div>
                 <h1>Manager Login</h1>
+                <img src={require('../../../images/manager.png')} style={{height:"200px"}}/>
                 <form className="col-4">
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Username</label>
-                        <input type="email" id="form2Example1" className="form-control" value={this.state.managerUsername} onChange={this.changeManagerUsernameHandler}/>
+                        <input type="email" id="form2Example1" className="form-control" required value={this.state.managerUsername} onChange={this.changeManagerUsernameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" className="form-control" value={this.state.managerPass} onChange={this.changeManagerPassHandler}/>
+                        <input type="password" id="form2Example2" className="form-control" required value={this.state.managerPass} onChange={this.changeManagerPassHandler}/>
                         
                     </div>
 

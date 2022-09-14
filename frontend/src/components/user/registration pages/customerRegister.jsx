@@ -94,58 +94,59 @@ class CustomerRegister extends Component {
         return (
             <div>
                 <h1>Register Customer</h1>
+                <img src={require('../../../images/reg1.png')} style={{height:"200px"}}/>
                 <form className="col-4">
-                    <div className="form-outline mb-4">
+                <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Name</label>
-                        <input type="text" id="custName" className="form-control" value={this.state.custName} onChange={this.changeCustomerNameHandler} />
+                        <input type="text" id="custName" className="form-control" required value={this.state.custName} onChange={this.changeCustomerNameHandler} />
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Date Of Birth</label>
-                        <input type="date" id="custDOB" className="form-control" value={this.state.custDOB} onChange={this.changeCustomerDOBHandler}/>
+                        <input type="date" id="custDOB" className="form-control" required value={this.state.custDOB} onChange={this.changeCustomerDOBHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Email</label>
-                        <input type="email" id="custEmail" className="form-control" value={this.state.custEmail} onChange={this.changeCustomerEmailHandler}/>
+                        <input type="email" id="custEmail" className="form-control" required value={this.state.custEmail} onChange={this.changeCustomerEmailHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Mobile Number</label>
-                        <input type="text" id="custMobile" className="form-control" value={this.state.custMobile} onChange={this.changeCustomerMobileHandler}/>
+                        <input type="text" id="custMobile" className="form-control" size="10" required value={this.state.custMobile} onChange={this.changeCustomerMobileHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Address</label>
-                        <input type="text" id="custAdd" className="form-control" value={this.state.custAdd} onChange={this.changeCustomerAddHandler}/>
+                        <input type="text" id="custAdd" className="form-control" required value={this.state.custAdd} onChange={this.changeCustomerAddHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Customer User Name</label>
-                        <input type="text" id="custUsername" className="form-control" value={this.state.custUsername} onChange={this.changeCustomerUsernameHandler}/>
+                        <input type="text" id="custUsername" className="form-control" required value={this.state.custUsername} onChange={this.changeCustomerUsernameHandler}/>
                        
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Customer Password</label>
-                        <input type="password" id="custPass" className="form-control" value={this.state.custPass} onChange={this.changeCustomerPassHandler}/>
+                        <input type="password" id="custPass" className="form-control" required pattern="[0-9a-zA-Z]{6,10}" value={this.state.custPass} onChange={this.changeCustomerPassHandler}/>
                        
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Wallet</label>
-                        <input type="text" id="custWallet" className="form-control" value={this.state.custWallet} onChange={this.changeCustomerWalletHandler}/>
+                        <input type="text" id="custWallet" className="form-control"  value={this.state.custWallet} onChange={this.changeCustomerWalletHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Customer Pin Code</label>
-                        <input type="text" id="custPin" className="form-control" value={this.state.custPin} onChange={this.changeCustomerPinHandler}/>
+                        <input type="text" id="custPin" className="form-control" required size="6" value={this.state.custPin} onChange={this.changeCustomerPinHandler}/>
                         
                     </div>
-
+                    
                     <button type="button" className="btn btn-primary btn-block mb-4" onClick={this.saveCustomer}>Register Customer</button>
 
                 </form>

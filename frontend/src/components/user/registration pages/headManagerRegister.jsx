@@ -65,32 +65,33 @@ class HeadManager extends Component {
         return (
             <div>
                 <h1>Register Head Manager</h1>
+                <img src={require('../../../images/reg3.jpg')} style={{height:"200px"}}/>
                 <form className="col-4">
-                    <div className="form-outline mb-4">
+                <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Head Manager Name</label>
-                        <input type="text" id="headManagerName" className="form-control" value={this.state.headManagerName} onChange={this.changeHeadManagerNameHandler}/>
+                        <input type="text" id="headManagerName" className="form-control" required  value={this.state.headManagerName} onChange={this.changeHeadManagerNameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Head Manager Email</label>
-                        <input type="email" id="headManagerEmail" className="form-control" value={this.state.headManagerEmail} onChange={this.changeHeadManagerEmailHandler}/>
+                        <input type="email" id="headManagerEmail" className="form-control" required value={this.state.headManagerEmail} onChange={this.changeHeadManagerEmailHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Head Manager Mobile Number</label>
-                        <input type="text" id="headManagerMobile" className="form-control" value={this.state.headManagerMobile} onChange={this.changeHeadManagerMobileHandler} />
+                        <input type="text" id="headManagerMobile" className="form-control" required  size="10" value={this.state.headManagerMobile} onChange={this.changeHeadManagerMobileHandler} />
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Head Manager User Name</label>
-                        <input type="text" id="headManagerUsername" className="form-control" value={this.state.headManagerUsername} onChange={this.changeHeadManagerUsernameHandler}/>
+                        <input type="text" id="headManagerUsername" className="form-control" required value={this.state.headManagerUsername} onChange={this.changeHeadManagerUsernameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Head Manager Password</label>
-                        <input type="password" id="headManagerPass" className="form-control" value={this.state.headManagerPass} onChange={this.changeHeadManagerPassHandler}/>
+                        <input type="password" id="headManagerPass" className="form-control" pattern="[0-9a-zA-Z]{6,10}" required value={this.state.headManagerPass} onChange={this.changeHeadManagerPassHandler}/>
                        
                     </div>
 

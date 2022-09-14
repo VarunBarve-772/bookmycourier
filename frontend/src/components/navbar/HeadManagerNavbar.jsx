@@ -24,6 +24,7 @@ class HeadManagerNavbar extends Component {
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
                                 <a className="nav-link" href="/headmanager/center">Centers</a>
+                                <a className="nav-link" href="/headmanager/manager">Managers</a>
                                 <a className="nav-link" href="/">Profile</a>
                                 <a className="nav-link" href="#">About Us</a>
                                 <a className="nav-link" href="#">Contact Us</a>

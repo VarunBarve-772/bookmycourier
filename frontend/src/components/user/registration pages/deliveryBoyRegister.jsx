@@ -65,35 +65,36 @@ class DeliveryBoyRegister extends Component {
         return (
             <div>
                 <h1>Register Delivery Boy</h1>
+                <img src={require('../../../images/reg2.webp')} style={{height:"200px"}}/>
                 <form className="col-4">
-                    <div className="form-outline mb-4">
+                <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Delivery Boy Name</label>
-                        <input type="text" id="deliveryBoyName" className="form-control" value={this.state.deliveryBoyName} onChange={this.changeDeliveryBoyNameHandler}/>
+                        <input type="text" id="deliveryBoyName" className="form-control" required  value={this.state.deliveryBoyName} onChange={this.changeDeliveryBoyNameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Delivery Boy Email</label>
-                        <input type="email" id="deliveryBoyEmail" className="form-control" value={this.state.deliveryBoyEmail} onChange={this.changeDeliveryBoyEmailHandler}/>
+                        <input type="email" id="deliveryBoyEmail" className="form-control" required value={this.state.deliveryBoyEmail} onChange={this.changeDeliveryBoyEmailHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Delivery Boy Mobile Number</label>
-                        <input type="text" id="deliveryBoyMobile" className="form-control" value={this.state.deliveryBoyMobile} onChange={this.changeDeliveryBoyMobileHandler}/>
+                        <input type="text" id="deliveryBoyMobile" className="form-control" size="10" required value={this.state.deliveryBoyMobile} onChange={this.changeDeliveryBoyMobileHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Delivery Boy User Name</label>
-                        <input type="text" id="deliveryBoyUsername" className="form-control" value={this.state.deliveryBoyUsername} onChange={this.changeDeliveryBoyUsernameHandler}/>
+                        <input type="text" id="deliveryBoyUsername" className="form-control" required value={this.state.deliveryBoyUsername} onChange={this.changeDeliveryBoyUsernameHandler}/>
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Delivery Boy Password</label>
-                        <input type="password" id="deliveryBoyPass" className="form-control" value={this.state.deliveryBoyPass} onChange={this.changeDeliveryBoyPassHandler}/>
+                        <input type="password" id="deliveryBoyPass" className="form-control" required pattern="[0-9a-zA-Z]{6,10}" value={this.state.deliveryBoyPass} onChange={this.changeDeliveryBoyPassHandler}/>
                        
                     </div>
-
+                    
                     <button type="button" className="btn btn-primary btn-block mb-4" onClick={this.saveDeliveryBoy}>Register Delivery Boy</button>
 
                 </form>

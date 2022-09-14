@@ -14,6 +14,10 @@ class ManagerService{
         return axios.post("http://localhost:8080/api/manager/login", manager);
     }
 
+    getAllManagers() {
+        return axios.get(`http://localhost:8080/api/manager/managers`);
+    }
+
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

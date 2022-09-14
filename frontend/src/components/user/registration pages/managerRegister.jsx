@@ -7,7 +7,7 @@ class ManagerRegister extends Component {
         this.state={
             managerName:'',
             managerEmail:'',
-            managerMobile:0,
+            managerMobile:'',
             managerUsername:'',
             managerPass:''
         }
@@ -65,32 +65,33 @@ class ManagerRegister extends Component {
         return (
             <div>
                 <h1>Register Manager</h1>
+                <img src={require('../../../images/reg4.png')} style={{height:"200px"}}/>
                 <form className="col-4">
-                    <div className="form-outline mb-4">
+                <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Manager Name</label>
-                        <input type="text" id="managerName" className="form-control" value={this.state.managerName} onChange={this.changeManagerNameHandler} />
+                        <input type="text" id="managerName" className="form-control" required  value={this.state.managerName} onChange={this.changeManagerNameHandler} />
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Manager Email</label>
-                        <input type="email" id="managerEmail" className="form-control" value={this.state.managerEmail} onChange={this.changeManagerEmailHandler}/>
+                        <input type="email" id="managerEmail" className="form-control" required value={this.state.managerEmail} onChange={this.changeManagerEmailHandler}/>
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Manager Mobile Number</label>
-                        <input type="text" id="managerMobile" className="form-control" value={this.state.managerMobile} onChange={this.changeManagerMobileHandler} />
+                        <input type="text" id="managerMobile" className="form-control" required size="10" value={this.state.managerMobile} onChange={this.changeManagerMobileHandler} />
                         
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Manager User Name</label>
-                        <input type="text" id="managerUsername" className="form-control" value={this.state.managerUsername} onChange={this.changeManagerPassHandler} />
+                        <input type="text" id="managerUsername" className="form-control" required value={this.state.managerUsername} onChange={this.changeManagerPassHandler} />
                         
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Manager Password</label>
-                        <input type="password" id="managerPass" className="form-control" value={this.state.managerPass} onChange={this.changeManagerPassHandler} />
+                        <input type="password" id="managerPass" className="form-control" required pattern="[0-9a-fA-F]{6,10}" value={this.state.managerPass} onChange={this.changeManagerPassHandler} />
                        
                     </div>
 
