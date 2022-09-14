@@ -28,7 +28,7 @@ public class Center {
 	@Column(name="centerPhone")
 	private String centerPhone;
 	
-	@Column(name="centerPin")
+	@Column(name="centerPin", nullable = false, unique=true)
 	private int centerPin;
 	
 	@Column(name="centerPrice")
@@ -37,14 +37,20 @@ public class Center {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="center_deliveryboy_fkid",referencedColumnName = "centerId")
 	Set<DeliveryBoy> deliveryboy = new HashSet<>();
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="center_bookedcourier_fkid",referencedColumnName = "centerId")
+	Set<BookedCourier> bookedCourier = new HashSet<>();
+
 
 	public Center() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Center(Long centerId, String centerName, String centerPhone, int centerPin, float centerPrice,
-			Set<DeliveryBoy> deliveryboy) {
+			Set<DeliveryBoy> deliveryboy, Set<BookedCourier> bookedCourier) {
 		super();
 		this.centerId = centerId;
 		this.centerName = centerName;
@@ -52,7 +58,19 @@ public class Center {
 		this.centerPin = centerPin;
 		this.centerPrice = centerPrice;
 		this.deliveryboy = deliveryboy;
+		this.bookedCourier = bookedCourier;
 	}
+
+
+	public Set<BookedCourier> getBookedCourier() {
+		return bookedCourier;
+	}
+
+
+	public void setBookedCourier(Set<BookedCourier> bookedCourier) {
+		this.bookedCourier = bookedCourier;
+	}
+
 
 	public Set<DeliveryBoy> getDeliveryboy() {
 		return deliveryboy;
@@ -102,10 +120,12 @@ public class Center {
 		this.centerPrice = centerPrice;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Center [centerId=" + centerId + ", centerName=" + centerName + ", centerPhone=" + centerPhone
-				+ ", centerPin=" + centerPin + ", centerPrice=" + centerPrice + ", deliveryboy=" + deliveryboy + "]";
+				+ ", centerPin=" + centerPin + ", centerPrice=" + centerPrice + ", deliveryboy=" + deliveryboy
+				+ ", bookedCourier=" + bookedCourier + "]";
 	}
-	
+
 }

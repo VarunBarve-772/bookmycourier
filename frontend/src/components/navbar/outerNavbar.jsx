@@ -18,8 +18,6 @@ class OuterNavbar extends Component {
                             <div className="navbar-nav">
                                 <a className="nav-link" href="/login">Login</a>
                                 <a className="nav-link" href="/registration">Register</a>
-                                <a className="nav-link" href="#">About Us</a>
-                                <a className="nav-link" href="#">Contact Us</a>
                             </div>
                         </div>
                     </div>

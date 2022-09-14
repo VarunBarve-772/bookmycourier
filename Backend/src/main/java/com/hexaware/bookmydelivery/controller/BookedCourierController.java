@@ -61,14 +61,14 @@ public class BookedCourierController {
 		}	
 	}
 	
-	@PutMapping("/")
-	public ResponseEntity<BookedCourier> updateBookedCourier(@RequestBody BookedCourier bookedCourier)throws ResourseNotFoundException {
-		BookedCourier updatedBookedCourier = bookedCourierService.updateBookedCourier(bookedCourier);
+	@PutMapping("/{id}")
+	public ResponseEntity<BookedCourier> updateBookedCourier(@RequestBody BookedCourier bookedCourier, @PathVariable(value = "id") Long bookedCourierId)throws ResourseNotFoundException {
+		BookedCourier updatedBookedCourier = bookedCourierService.updateBookedCourier(bookedCourier, bookedCourierId);
 		
-		if(updatedBookedCourier == null) {
-			return ResponseEntity.ok().body(updatedBookedCourier);
-		} else {
+		if(updatedBookedCourier.equals(null)) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(updatedBookedCourier);
+		} else {
+			return ResponseEntity.ok().body(updatedBookedCourier);
 		}
 	}
 	
@@ -80,5 +80,14 @@ public class BookedCourierController {
 			return new ResponseEntity<>("Booked Courier Not Deleted", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
+	@PutMapping("/updatestatus/{id}")
+	public ResponseEntity<String> updateBookedCourierStatus(@RequestBody BookedCourier bookedCourier, @PathVariable(value = "id") Long bookedCourierId){
+		 if (bookedCourierService.updateBookedCourierStatus(bookedCourier, bookedCourierId)) {
+				return new ResponseEntity<>("Booked Courier Status Updated", HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>("Booked Courier Status Not Updated", HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+	}
 }

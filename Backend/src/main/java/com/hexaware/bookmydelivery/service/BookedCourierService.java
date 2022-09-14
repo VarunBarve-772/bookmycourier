@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hexaware.bookmydelivery.entity.BookedCourier;
+import com.hexaware.bookmydelivery.entity.Center;
 import com.hexaware.bookmydelivery.entity.Customer;
 import com.hexaware.bookmydelivery.exception.ResourseNotFoundException;
 import com.hexaware.bookmydelivery.repository.BookedCourierRepository;
+import com.hexaware.bookmydelivery.repository.CenterRepository;
 
 @Service
 public class BookedCourierService implements IBookedCourierService {
@@ -21,6 +23,8 @@ public class BookedCourierService implements IBookedCourierService {
 	
 	@Autowired
 	private ICustomerService customerService;
+	
+	@Autowired CenterRepository centerRepository;
 	
 	@Override
 	public List<BookedCourier> getAllBookedCouriers() {
@@ -40,12 +44,24 @@ public class BookedCourierService implements IBookedCourierService {
 			Optional<Customer> customerOptional = customerService.getCustomerByID(custId);
 			Customer customer = customerOptional.get();
 			
-			Set<BookedCourier> bookedCourirerCustomer = customer.getBookedCourier();
-			if(bookedCourirerCustomer.isEmpty()) {
-				bookedCourirerCustomer = new HashSet<>();
+//			logic to check and add courier to center
+			Center center = centerRepository.findByCenterPin(customer.getCustPin());
+			if(center.equals(null)) {
+				return false;
+			} else {
+				Set<BookedCourier> bookedCourierCenter= center.getBookedCourier();
+				bookedCourierCenter.add(bookedCourier);
+				center.setBookedCourier(bookedCourierCenter);
+				centerRepository.save(center);	
 			}
-			bookedCourirerCustomer.add(bookedCourier);
-			customer.setBookedCourier(bookedCourirerCustomer);
+			
+//			logic to add courier to customer
+			Set<BookedCourier> bookedCourierCustomer = customer.getBookedCourier();
+			if(bookedCourierCustomer.isEmpty()) {
+				bookedCourierCustomer = new HashSet<>();
+			}
+			bookedCourierCustomer.add(bookedCourier);
+			customer.setBookedCourier(bookedCourierCustomer);
 			
 			customerService.saveCustomer(customer);
 			
@@ -57,9 +73,17 @@ public class BookedCourierService implements IBookedCourierService {
 	}
 
 	@Override
-	public BookedCourier updateBookedCourier(BookedCourier bookedCourier)throws ResourseNotFoundException  {
+	public BookedCourier updateBookedCourier(BookedCourier updatedBookedCourier, Long bookedCourierId)throws ResourseNotFoundException  {
 		// TODO Auto-generated method stub
-		return bookedCourierRepository.save(bookedCourier);
+		Optional<BookedCourier> oldBookedCourierOptional = bookedCourierRepository.findById(bookedCourierId);
+		BookedCourier oldBookedCourier = oldBookedCourierOptional.get();
+//		System.out.println(updatedBookedCourier.getCourierComment());
+		oldBookedCourier.setCourierComment(updatedBookedCourier.getCourierComment());
+		oldBookedCourier.setCourierPrice(updatedBookedCourier.getCourierPrice());
+		oldBookedCourier.setCourierStatus(updatedBookedCourier.getCourierStatus());
+		
+		bookedCourierRepository.save(oldBookedCourier);
+		return 	oldBookedCourier;
 	}
 
 	@Override
@@ -71,5 +95,22 @@ public class BookedCourierService implements IBookedCourierService {
 			return false;
 		}
 	}
+
+	@Override
+	public boolean updateBookedCourierStatus(BookedCourier updatedBookedCourier, Long bookedCourierId) {
+		// TODO Auto-generated method stub
+		try {
+			Optional<BookedCourier> oldBookedCourierOptional = bookedCourierRepository.findById(bookedCourierId);
+			BookedCourier oldBookedCourier = oldBookedCourierOptional.get();
+			oldBookedCourier.setCourierStatus(updatedBookedCourier.getCourierStatus());
+			
+			bookedCourierRepository.save(oldBookedCourier);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		}
 
 }

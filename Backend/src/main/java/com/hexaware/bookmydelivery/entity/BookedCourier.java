@@ -29,6 +29,10 @@ public class BookedCourier {
 	private Date courierDeliveryDate;
 	@Column(name="courierStatus")
 	private String courierStatus;
+	@Column(name="courierPrice")
+	private int courierPrice;
+	@Column(name="courierComment")
+	private String courierComment;
 	
 	public Date getCourierBookDate() {
 		return courierBookDate;
@@ -65,25 +69,36 @@ public class BookedCourier {
 	}
 	public void setCourierStatus(String courierStatus) {
 		this.courierStatus = courierStatus;
+	}	
+	
+	public int getCourierPrice() {
+		return courierPrice;
 	}
-
+	public void setCourierPrice(int courierPrice) {
+		this.courierPrice = courierPrice;
+	}
+	public String getCourierComment() {
+		return courierComment;
+	}
+	public void setCourierComment(String courierComment) {
+		this.courierComment = courierComment;
+	}
 	@Override
 	public String toString() {
 		return "BookedCourier [courierId=" + courierId + ", courierBookDate=" + courierBookDate + ", courierPickupAdd="
 				+ courierPickupAdd + ", courierDeliveryAdd=" + courierDeliveryAdd + ", courierPickupDate="
 				+ courierPickupDate + ", courierDeliveryDate=" + courierDeliveryDate + ", courierStatus="
-				+ courierStatus + "]";
+				+ courierStatus + ", courierPrice=" + courierPrice + ", courierComment=" + courierComment + "]";
 	}
-	
-	
 	public Long getCourierId() {
 		return courierId;
 	}
 	public void setCourierId(Long courierId) {
 		this.courierId = courierId;
 	}
+
 	public BookedCourier(Long courierId, Date courierBookDate, String courierPickupAdd, String courierDeliveryAdd,
-			Date courierPickupDate, Date courierDeliveryDate, String courierStatus, Long customerId) {
+			Date courierPickupDate, Date courierDeliveryDate, String courierStatus, int courierPrice, String courierComment) {
 		super();
 		this.courierId = courierId;
 		this.courierBookDate = courierBookDate;
@@ -92,8 +107,9 @@ public class BookedCourier {
 		this.courierPickupDate = courierPickupDate;
 		this.courierDeliveryDate = courierDeliveryDate;
 		this.courierStatus = courierStatus;
+		this.courierPrice = courierPrice;
+		this.courierComment = courierComment;
 	}
-
 	public BookedCourier() {
 		// TODO Auto-generated constructor stub
 	}

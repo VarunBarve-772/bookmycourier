@@ -10,6 +10,18 @@ class BookedCourierService{
         return axios.post(`http://localhost:8080/api/bookedcourier/?custId=${custId}`,courier);
     }
 
+    acceptCourier(courier, courierId) {
+        return axios.put(`http://localhost:8080/api/bookedcourier/${courierId}`, courier);
+    }
+
+    rejectCourier(courier, courierId) {
+        return axios.put(`http://localhost:8080/api/bookedcourier/${courierId}`, courier);
+    }
+
+    updateStatus(courier, courierId) {
+        return axios.put(`http://localhost:8080/api/bookedcourier/updatestatus/${courierId}`, courier);
+    }
+
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

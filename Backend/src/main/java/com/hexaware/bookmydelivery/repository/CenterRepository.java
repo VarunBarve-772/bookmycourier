@@ -8,4 +8,5 @@ import com.hexaware.bookmydelivery.entity.Center;
 @Repository
 public interface CenterRepository extends JpaRepository<Center, Long> {
 
+	public Center findByCenterPin(int centerPin);
 }

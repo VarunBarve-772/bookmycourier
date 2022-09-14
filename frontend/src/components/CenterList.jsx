@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 
 import CenterService from '../services/CenterService';
+import CustomerNavbar from './navbar/CustomerNavbar';
 import HeadManagerNavbar from './navbar/HeadManagerNavbar';
 
 class CenterList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            centerList: []
+            centerList: [],
+            navbarState: ''
         }
+
     }
 
     componentDidMount() {
+        if(sessionStorage.getItem("userType") === "Customer") {
+            this.setState({navbarState: <CustomerNavbar />});
+        } else {
+            this.setState({navbarState: <HeadManagerNavbar />});
+        }
+
         CenterService.getAllCenters()
         .then((response) => {
             // console.log(response.data);
@@ -22,7 +31,7 @@ class CenterList extends Component {
     render() {
         return (
             <div>
-                <HeadManagerNavbar />
+                {this.state.navbarState}
                 <div className="container">
                     {this.state.centerList.map(
                         center => {

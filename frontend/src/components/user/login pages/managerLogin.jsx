@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
 import ManagerService from "../../../services/ManagerService";
 
-class AdminLogin extends Component {
+class ManagerLogin extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -77,4 +79,4 @@ class AdminLogin extends Component {
         )
     }
 }
-export default AdminLogin;
+export default withRouter(ManagerLogin);

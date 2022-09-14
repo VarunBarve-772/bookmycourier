@@ -18,6 +18,14 @@ class ManagerService{
         return axios.get(`http://localhost:8080/api/manager/managers`);
     }
 
+    addCenter(managerId, centerId) {
+        return axios.get(`http://localhost:8080/api/manager/addcenter?managerId=${managerId}&centerId=${centerId}`);
+    }
+
+    getManagerById(managerId) {
+        return axios.get(`http://localhost:8080/api/manager/${managerId}`);
+    }
+
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

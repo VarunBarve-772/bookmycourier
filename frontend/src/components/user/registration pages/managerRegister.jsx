@@ -85,7 +85,7 @@ class ManagerRegister extends Component {
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example1">Manager User Name</label>
-                        <input type="text" id="managerUsername" className="form-control" required value={this.state.managerUsername} onChange={this.changeManagerPassHandler} />
+                        <input type="text" id="managerUsername" className="form-control" required value={this.state.managerUsername} onChange={this.changeManagerUsernameHandler} />
                         
                     </div>
 

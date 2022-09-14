@@ -23,10 +23,8 @@ class DeliveryBoyNavbar extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <a className="nav-link" href="/customer/history">Courier History</a>
+                                {/* <a className="nav-link" href="/customer/history">Courier History</a> */}
                                 <a className="nav-link" href="/">Profile</a>
-                                <a className="nav-link" href="#">About Us</a>
-                                <a className="nav-link" href="#">Contact Us</a>
                                 <p className="nav-link" style={{cursor: "pointer"}} onClick={this.logoutUser}>Logout</p>
                             </div>
                         </div>

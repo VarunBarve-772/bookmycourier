@@ -19,4 +19,6 @@ public interface IManagerService {
 	public boolean deleteManager(long managerId);
 
 	public Manager loginManager(Manager manager);
+	
+	public boolean addCenter(Long managerID, Long centerId);
 }

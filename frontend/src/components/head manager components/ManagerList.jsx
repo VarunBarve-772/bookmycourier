@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 
 import ManagerService from '../../services/ManagerService';
 import CenterService from '../../services/CenterService';
@@ -10,18 +11,18 @@ class ManagerList extends Component {
         this.state = {
             managerList: [],
             centerList: [],
-            managerId: '',
-            centerId: ''
+            managerId: 0,
+            centerId: 0
         }
 
-        this.changerManagerCenterHandler = this.changerManagerCenterHandler.bind(this);
+        this.changeManagerCenterHandler = this.changeManagerCenterHandler.bind(this);
         this.updateCenterManager = this.updateCenterManager.bind(this);
     }
 
     componentDidMount() {
         ManagerService.getAllManagers()
         .then((response) => {
-            // console.log(response.data);
+            console.log(response.data);
             this.setState({managerList: response.data});
         })
 
@@ -32,21 +33,36 @@ class ManagerList extends Component {
         })
     }
 
-    changerManagerCenterHandler = (event, managerId) => {
-        console.log(event.target.value, managerId);
+    changeManagerCenterHandler = (event, managerId) => {
+        this.setState({
+            managerId: managerId,
+            centerId: event.target.value
+        });
     }
 
     updateCenterManager = () => {
-
+        // console.log(this.state.centerId, this.state.managerId);
+        ManagerService.addCenter(this.state.managerId, this.state.centerId)
+        .then((response) => {
+            // console.log(response.status);
+            // this.props.history.push("/headmanager/manager");
+            window.location.reload();
+        })
     }
 
     render() {
+        let centerName = null;
         return (
             <div>
                 <HeadManagerNavbar />
                 <div className="container">
                     {this.state.managerList.map(
                         manager => {
+                            if(manager.center) {
+                                centerName = manager.center.centerName;
+                            } else {
+                                centerName = "None";
+                            }
                             return (
                                 <div className="card text-dark bg-light my-3" key={manager.managerId}>
                                     <div className="card-body">
@@ -61,15 +77,16 @@ class ManagerList extends Component {
                                             <p className="card-text">Manager Mobile: {manager.managerMobile}</p>
                                             </div>
                                             <div className='col-3'>
-                                            <p className="card-text">Current Center: {manager.center}</p>
+                                            <p className="card-text">Current Center: {centerName}</p>
                                             </div>
                                         </div> 
                                         <form>
                                             <div className='row my-3'>
                                                 <label className="form-label col-2" htmlFor='centerList'>Update Center</label>
                                                 <select id='centerList' className='col-2' onChange={(e) => {
-                                                    this.changerManagerCenterHandler(e, manager.managerId)
+                                                    this.changeManagerCenterHandler(e, manager.managerId)
                                                 }}>
+                                                    <option disabled selected={true}>Select Center</option>
                                                     {this.state.centerList.map((center) => {
                                                         return(
                                                             <option key={center.centerId} value={center.centerId}>{center.centerName}</option>
@@ -98,4 +115,4 @@ class ManagerList extends Component {
     }
 }
 
-export default ManagerList;
+export default withRouter(ManagerList);

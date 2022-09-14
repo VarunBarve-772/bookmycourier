@@ -28,6 +28,8 @@ function App() {
 
           <Route path="/customer/history" component={CustomerCourierHistory}></Route>
 
+          <Route path="/customer/centers" component={CenterList}></Route>
+
         {/* Manager Routing Paths */}
           <Route path="/manager/home" component={ManagerHome}></Route>
 

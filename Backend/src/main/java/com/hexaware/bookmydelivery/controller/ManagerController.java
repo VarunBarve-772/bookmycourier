@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.bookmydelivery.entity.Manager;
@@ -87,6 +88,15 @@ public class ManagerController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(managerUser);
 		} else {
 			return ResponseEntity.ok().body(managerUser);
+		}
+	}
+	
+	@GetMapping("/addcenter")
+	public ResponseEntity<String> addCenter(@RequestParam Long managerId, @RequestParam Long centerId) {
+		if(managerService.addCenter(managerId, centerId)) {
+			return new ResponseEntity<>("Center Added", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>("Center Not Added", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

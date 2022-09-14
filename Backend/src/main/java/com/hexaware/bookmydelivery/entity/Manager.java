@@ -1,8 +1,5 @@
 package com.hexaware.bookmydelivery.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,18 +33,13 @@ public class Manager {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="center_details_fkid")
 	private Center center;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="manager_bookedcourier_fkid",referencedColumnName = "managerId")
-	Set<BookedCourier> bookedCourier = new HashSet<>();
-
 	
 	public Manager() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Manager(Long managerId, String managerName, String managerEmail, String managerMobile,
-			String managerUsername, String managerPass, Center center, Set<BookedCourier> bookedCourier) {
+			String managerUsername, String managerPass, Center center) {
 		super();
 		this.managerId = managerId;
 		this.managerName = managerName;
@@ -57,18 +48,7 @@ public class Manager {
 		this.managerUsername = managerUsername;
 		this.managerPass = managerPass;
 		this.center = center;
-		this.bookedCourier = bookedCourier;
 	}
-
-	public Set<BookedCourier> getBookedCourier() {
-		return bookedCourier;
-	}
-
-
-	public void setBookedCourier(Set<BookedCourier> bookedCourier) {
-		this.bookedCourier = bookedCourier;
-	}
-
 
 	public String getManagerUsername() {
 		return managerUsername;
@@ -143,7 +123,7 @@ public class Manager {
 	public String toString() {
 		return "Manager [managerId=" + managerId + ", managerName=" + managerName + ", managerEmail=" + managerEmail
 				+ ", managerMobile=" + managerMobile + ", managerUsername=" + managerUsername + ", managerPass="
-				+ managerPass + ", center=" + center + ", bookedCourier=" + bookedCourier + "]";
+				+ managerPass + ", center=" + center + "]";
 	}
 	
 }

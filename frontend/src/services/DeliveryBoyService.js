@@ -17,6 +17,14 @@ class DeliveryBoyService{
     getDeliveryBoyById(deliveryBoyId) {
         return axios.get(`http://localhost:8080/api/deliveryboy/${deliveryBoyId}`);
     }
+
+    getAllDeliveryBoy() {
+        return axios.get(`http://localhost:8080/api/deliveryboy/deliveryboy`)
+    }
+
+    addCourier(deliveryBoyId, courierId) {
+        return axios.get(`http://localhost:8080/api/deliveryboy/addcourier?deliveryBoyId=${deliveryBoyId}&bookedCourierId=${courierId}`);
+    }
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

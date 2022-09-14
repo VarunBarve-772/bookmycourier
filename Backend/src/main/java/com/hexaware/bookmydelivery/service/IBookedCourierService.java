@@ -14,9 +14,10 @@ public interface IBookedCourierService {
 	
 	public boolean saveBookedCourier(BookedCourier bookedCourier, Long custId);
 	
-	public BookedCourier updateBookedCourier(BookedCourier bookedCourier)throws ResourseNotFoundException;
+	public BookedCourier updateBookedCourier(BookedCourier bookedCourier, Long bookedCourierId)throws ResourseNotFoundException;
 	
 	public boolean deleteBookedCourier(long bookedCourierId);
 
+	public boolean updateBookedCourierStatus(BookedCourier bookedCourier, Long bookedCourierId);
 
 }
