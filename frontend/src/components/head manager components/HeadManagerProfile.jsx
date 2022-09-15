@@ -26,26 +26,20 @@ class HeadManagerProfile extends Component{
                     <h3 className="text-center">View Head Manager Profile</h3>
                         <div className="card-body">
                             <div className="row">
-                                <label><b>Head Manager Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.headManager.headManagerName}</div>
+                                <label className="col-6"><b>Head Manager Name :</b></label>
+                                <div className="col-6">{this.state.headManager.headManagerName}</div>
                             </div>
                             <div className="row">
-                                <label><b>Head Manager Email :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.headManager.headManagerEmail}</div>
+                                <label className="col-6"><b>Head Manager Email :</b></label>
+                                <div className="col-6">{this.state.headManager.headManagerEmail}</div>
                             </div>
                             <div className="row">
-                                <label><b>Head Manager Mobile :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.headManager.headManagerMobile}</div>
+                                <label className="col-6"><b>Head Manager Mobile :</b></label>
+                                <div className="col-6">{this.state.headManager.headManagerMobile}</div>
                             </div>
                             <div className="row">
-                                <label><b>Head Manager User Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.headManager.headManagerUsername}</div>
-                            </div>
-                            <div className="row">
-                                <button type="button" className="btn btn-primary"
-                                onClick={()=>this.goBack}>
-                                    Head Manager Home
-                                </button>
+                                <label className="col-6"><b>Head Manager User Name :</b></label>
+                                <div className="col-6">{this.state.headManager.headManagerUsername}</div>
                             </div>
                         </div>
                 </div>

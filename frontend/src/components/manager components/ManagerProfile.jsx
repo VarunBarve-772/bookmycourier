@@ -29,26 +29,20 @@ class ManagerProfile extends Component{
                     <h3 className="text-center">View Manager Profile</h3>
                         <div className="card-body">
                             <div className="row">
-                                <label><b>Manager Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.manager.managerName}</div>
+                                <label className="col-6"><b>Manager Name :</b></label>
+                                <div className="col-6">{this.state.manager.managerName}</div>
                             </div>
                             <div className="row">
-                                <label><b>Manager Email :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.manager.managerEmail}</div>
+                                <label className="col-6"><b>Manager Email :</b></label>
+                                <div className="col-6">{this.state.manager.managerEmail}</div>
                             </div>
                             <div className="row">
-                                <label><b>Manager Mobile :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.manager.managerMobile}</div>
+                                <label className="col-6"><b>Manager Mobile :</b></label>
+                                <div className="col-6">{this.state.manager.managerMobile}</div>
                             </div>
                             <div className="row">
-                                <label><b>Manager User Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.manager.managerUsername}</div>
-                            </div>
-                            <div className="row">
-                                <button type="button" className="btn btn-primary"
-                                onClick={()=>this.goBack}>
-                                    Manager Home
-                                </button>
+                                <label className="col-6"><b>Manager User Name :</b></label>
+                                <div className="col-6">{this.state.manager.managerUsername}</div>
                             </div>
                         </div>
                 </div>

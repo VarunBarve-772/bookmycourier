@@ -28,26 +28,20 @@ class DeliveryBoyProfile extends Component{
                     <h3 className="text-center">View Delivery Boy Profile</h3>
                         <div className="card-body">
                             <div className="row">
-                                <label><b>Delivery Boy Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.deliveryBoy.deliveryBoyName}</div>
+                                <label className="col-6"><b>Delivery Boy Name :</b></label>
+                                <div className="col-6">{this.state.deliveryBoy.deliveryBoyName}</div>
                             </div>
                             <div className="row">
-                                <label><b>Delivery Boy Email :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.deliveryBoy.deliveryBoyEmail}</div>
+                                <label className="col-6"><b>Delivery Boy Email :</b></label>
+                                <div className="col-6">{this.state.deliveryBoy.deliveryBoyEmail}</div>
                             </div>
                             <div className="row">
-                                <label><b>Delivery Boy Mobile :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.deliveryBoy.deliveryBoyMobile}</div>
+                                <label className="col-6"><b>Delivery Boy Mobile :</b></label>
+                                <div className="col-6">{this.state.deliveryBoy.deliveryBoyMobile}</div>
                             </div>
                             <div className="row">
-                                <label><b>Delivery Boy User Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.deliveryBoy.deliveryBoyUsername}</div>
-                            </div>
-                            <div className="row">
-                                <button type="button" className="btn btn-primary"
-                                onClick={()=>this.goBack}>
-                                    Delivery Boy Home
-                                </button>
+                                <label className="col-6"><b>Delivery Boy User Name :</b></label>
+                                <div className="col-6">{this.state.deliveryBoy.deliveryBoyUsername}</div>
                             </div>
                         </div>
                 </div>

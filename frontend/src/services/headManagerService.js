@@ -13,6 +13,12 @@ class HeadManagerService{
     loginHeadManager(headManager) {
         return axios.post("http://localhost:8080/api/headmanager/login", headManager);
     }
+
+    getHeadManagerById(headManagerId) {
+        return axios.get(`http://localhost:8080/api/headmanager/${headManagerId}`);
+    }
+
+
     // getEmployeeById(employeeId){
     //     return axios.get("http://localhost:8088/employee/findemployee/"+employeeId);
     // }

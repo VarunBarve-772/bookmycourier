@@ -13,7 +13,6 @@ class CustomerProfile extends Component{
     }
 
     componentDidMount(){
-        console.log("snklnlv");
         CustomerService.getCustomerById(sessionStorage.getItem("userId"))
         .then((response) =>{
             this.setState({customer : response.data})
@@ -29,43 +28,37 @@ class CustomerProfile extends Component{
                     <h3 className="text-center">View Customer Profile</h3>
                         <div className="card-body">
                             <div className="row">
-                                <label><b>Customer Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custName}</div>
+                                <label className="col-6"><b>Customer Name :</b></label>
+                                <div className="col-6">{this.state.customer.custName}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Email :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custEmail}</div>
+                                <label className="col-6"><b>Customer Email :</b></label>
+                                <div className="col-6">{this.state.customer.custEmail}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Mobile :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custMobile}</div>
+                                <label className="col-6"><b>Customer Mobile :</b></label>
+                                <div className="col-6">{this.state.customer.custMobile}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer User Name :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custUsername}</div>
+                                <label className="col-6"><b>Customer User Name :</b></label>
+                                <div className="col-6">{this.state.customer.custUsername}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Date Of Birth :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custDOB}</div>
+                                <label className="col-6"><b>Customer Date Of Birth :</b></label>
+                                <div className="col-6">{this.state.customer.custDOB}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Address :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custAdd}</div>
+                                <label className="col-6"><b>Customer Address :</b></label>
+                                <div className="col-6">{this.state.customer.custAdd}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Wallet :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custWallet}</div>
+                                <label className="col-6"><b>Customer Wallet :</b></label>
+                                <div className="col-6">{this.state.customer.custWallet}</div>
                             </div>
                             <div className="row">
-                                <label><b>Customer Pin Code :</b></label>
-                                <div style={{marginLeft:"10px"}}>{this.state.customer.custPin}</div>
+                                <label className="col-6"><b>Customer Pin Code :</b></label>
+                                <div className="col-6">{this.state.customer.custPin}</div>
                             </div>
-                            {/* <div className="row">
-                                <button type="button" className="btn btn-primary"
-                                onClick={()=>this.goBack}>
-                                    Customer Home
-                                </button>
-                            </div> */}
                         </div>
                 </div>
             </div>

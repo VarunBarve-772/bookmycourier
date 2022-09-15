@@ -21,9 +21,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={LandingPage}></Route>
+          {/* <Route path="/" exact component={LandingPage}></Route> */}
 
-          <Route path="/login" component={Login}></Route>
+          <Route path="/" exact component={Login}></Route>
 
           <Route path="/registration" component={Register}></Route>
 
@@ -34,12 +34,12 @@ function App() {
 
           <Route path="/customer/centers" component={CenterList}></Route>
 
-          <Route path="/customer/profile" componet={CustomerProfile}></Route>
+          <Route path="/customer/profile" component={CustomerProfile}></Route>
 
         {/* Manager Routing Paths */}
           <Route path="/manager/home" component={ManagerHome}></Route>
           
-          <Route path="/manager/profile" componet={ManagerProfile}></Route>
+          <Route path="/manager/profile" component={ManagerProfile}></Route>
 
         {/* Head Manager Routing Paths */}
           <Route path="/headmanager/home" component={HeadManagerHome}></Route>
@@ -48,12 +48,12 @@ function App() {
 
           <Route path="/headmanager/manager" component={ManagerList}></Route>
 
-          <Route path="/headmanager/profile" componet={HeadManagerProfile}></Route>
+          <Route path="/headmanager/profile" component={HeadManagerProfile}></Route>
 
         {/* Delivery Boy Routing Paths */}
           <Route path="/deliveryboy/home" component={DeliveryBoyHome}></Route>
 
-          <Route path="/deliveryboy/profile" componet={DeliveryBoyProfile}></Route>
+          <Route path="/deliveryboy/profile" component={DeliveryBoyProfile}></Route>
 
         </Switch>
       </BrowserRouter>
