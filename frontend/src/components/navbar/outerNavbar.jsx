@@ -16,7 +16,7 @@ class OuterNavbar extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <a className="nav-link" href="/login">Login</a>
+                                <a className="nav-link" href="/">Login</a>
                                 <a className="nav-link" href="/registration">Register</a>
                             </div>
                         </div>
