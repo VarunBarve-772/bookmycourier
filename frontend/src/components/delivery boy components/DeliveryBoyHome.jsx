@@ -44,7 +44,9 @@ class DeliveryBoyHome extends Component{
 
     render() {
         return(
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <DeliveryBoyNavbar />
                 <div className="container">
                     {this.state.deliveryBoyCouriers.map(

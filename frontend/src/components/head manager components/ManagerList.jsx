@@ -53,7 +53,9 @@ class ManagerList extends Component {
     render() {
         let centerName = null;
         return (
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <HeadManagerNavbar />
                 <div className="container">
                     {this.state.managerList.map(

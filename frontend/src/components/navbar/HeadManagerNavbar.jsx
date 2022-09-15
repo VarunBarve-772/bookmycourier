@@ -25,7 +25,7 @@ class HeadManagerNavbar extends Component {
                             <div className="navbar-nav">
                                 <a className="nav-link" href="/headmanager/center">Centers</a>
                                 <a className="nav-link" href="/headmanager/manager">Managers</a>
-                                <a className="nav-link" href="/">Profile</a>
+                                <a className="nav-link" href="/headmanager/profile">Profile</a>
                                 <p className="nav-link" style={{cursor: "pointer"}} onClick={this.logoutUser}>Logout</p>
                             </div>
                         </div>

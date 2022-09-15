@@ -25,7 +25,7 @@ class CustomerNavbar extends Component {
                             <div className="navbar-nav">
                                 <a className="nav-link" href="/customer/history">Courier History</a>
                                 <a className="nav-link" href="/customer/centers">Centers</a>
-                                <a className="nav-link" href="/">Profile</a>
+                                <a className="nav-link" href="/customer/profile">Profile</a>
                                 <p className="nav-link" style={{cursor: "pointer"}} onClick={this.logoutUser}>Logout</p>
                             </div>
                         </div>

@@ -66,7 +66,9 @@ class CustomerHome extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <CustomerNavbar />
                 <h1>Book Your Courier</h1>
                 <form className="col-4">

@@ -11,6 +11,10 @@ import HeadManagerHome from './components/head manager components/HeadManagerHom
 import DeliveryBoyHome from './components/delivery boy components/DeliveryBoyHome';
 import CenterList from './components/CenterList';
 import ManagerList from './components/head manager components/ManagerList';
+import CustomerProfile from './components/customer components/CustomerProfile';
+import ManagerProfile from './components/manager components/ManagerProfile';
+import HeadManagerProfile from './components/head manager components/HeadManagerProfile';
+import DeliveryBoyProfile from './components/delivery boy components/DeliveryBoyProfile';
 
 function App() {
   return (
@@ -30,8 +34,12 @@ function App() {
 
           <Route path="/customer/centers" component={CenterList}></Route>
 
+          <Route path="/customer/profile" componet={CustomerProfile}></Route>
+
         {/* Manager Routing Paths */}
           <Route path="/manager/home" component={ManagerHome}></Route>
+          
+          <Route path="/manager/profile" componet={ManagerProfile}></Route>
 
         {/* Head Manager Routing Paths */}
           <Route path="/headmanager/home" component={HeadManagerHome}></Route>
@@ -40,8 +48,12 @@ function App() {
 
           <Route path="/headmanager/manager" component={ManagerList}></Route>
 
+          <Route path="/headmanager/profile" componet={HeadManagerProfile}></Route>
+
         {/* Delivery Boy Routing Paths */}
           <Route path="/deliveryboy/home" component={DeliveryBoyHome}></Route>
+
+          <Route path="/deliveryboy/profile" componet={DeliveryBoyProfile}></Route>
 
         </Switch>
       </BrowserRouter>

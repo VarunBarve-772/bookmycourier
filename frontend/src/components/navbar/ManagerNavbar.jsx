@@ -23,7 +23,7 @@ class ManagerNavbar extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav">
-                                <a className="nav-link" href="/">Profile</a>
+                                <a className="nav-link" href="/manager/profile">Profile</a>
                                 <p className="nav-link" style={{cursor: "pointer"}} onClick={this.logoutUser}>Logout</p>
                             </div>
                         </div>

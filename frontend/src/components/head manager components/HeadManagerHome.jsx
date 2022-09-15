@@ -58,7 +58,9 @@ class HeadManagerHome extends Component{
 
     render(){
         return(
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <HeadManagerNavbar />
                 <h1>Register Center</h1>
                 <form className="col-4">

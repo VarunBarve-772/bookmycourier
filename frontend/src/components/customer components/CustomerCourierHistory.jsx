@@ -21,7 +21,9 @@ class CustomerCourierHistory extends Component {
 
     render() {
         return(
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <CustomerNavbar />
                 <div className="container">
                     {this.state.customerCouriers.map(

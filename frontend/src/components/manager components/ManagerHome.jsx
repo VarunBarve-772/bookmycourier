@@ -95,7 +95,9 @@ class ManagerHome extends Component{
 
     render() {
         return(
-            <div>
+            <div style={{
+                backgroundColor: '#D3D3D3',
+              }}>
                 <ManagerNavbar />
                 <div className="container">
                     {this.state.courierList.map(
