@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-import OuterNavbar from "../../navbar/OuterNavbar";
+import OuterNavbar from "../../navbar/outerNavbar";
 import HeadManagerLogin from "./HeadManagerLogin";
-import CustomerLogin from "./CustomerLogin";
-import DeliveryBoyLogin from './DeliveryBoyLogin';
-import ManagerLogin from './ManagerLogin';
+import CustomerLogin from "./customerLogin";
+import DeliveryBoyLogin from './deliveryBoyLogin';
+import ManagerLogin from './managerLogin';
 
 class Login extends Component {
     constructor(props) {

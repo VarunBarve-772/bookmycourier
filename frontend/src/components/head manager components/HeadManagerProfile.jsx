@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import headManagerService from "../../services/HeadManagerService";
+import headManagerService from "../../services/headManagerService";
 import HeadManagerNavbar from "../navbar/HeadManagerNavbar";
 
 

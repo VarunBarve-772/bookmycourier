@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 
-import HeadManagerService from "../../../services/HeadManagerService";
+import HeadManagerService from "../../../services/headManagerService";
 
 class HeadManagerLogin extends Component {
     constructor(props) {

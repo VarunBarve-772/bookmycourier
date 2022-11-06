@@ -2,8 +2,8 @@ import './App.css';
 import { BrowserRouter,Switch,Route } from 'react-router-dom';
 
 import Login from './components/user/login pages/login';
-import LandingPage from './components/LandingPage';
-import Register from './components/user/registration pages/Register'
+// import LandingPage from './components/LandingPage';
+import Register from './components/user/registration pages/register'
 import CustomerHome from './components/customer components/CustomerHome';
 import CustomerCourierHistory from './components/customer components/CustomerCourierHistory';
 import ManagerHome from "./components/manager components/ManagerHome";
